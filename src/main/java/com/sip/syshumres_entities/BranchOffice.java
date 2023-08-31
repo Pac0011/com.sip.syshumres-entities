@@ -196,7 +196,7 @@ public class BranchOffice extends BaseEntityCatalog {
 
 	@Override
 	public String toString() {
-		return "BranchOffice" + super.toString();
+		return "BranchOffice " + super.toString();
 	}
 	
 	@Override
