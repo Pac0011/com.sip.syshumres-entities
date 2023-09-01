@@ -19,7 +19,7 @@ public class Region extends BaseEntityCatalog {
 	
 	@Override
 	public String toString() {
-		return "Region" + super.toString();
+		return "Region " + super.toString();
 	}
 	
 	@Override

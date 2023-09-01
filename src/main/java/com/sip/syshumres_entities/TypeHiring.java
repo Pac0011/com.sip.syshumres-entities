@@ -19,7 +19,7 @@ public class TypeHiring extends BaseEntityCatalog {
 	
 	@Override
 	public String toString() {
-		return "TypeHiring" + super.toString();
+		return "TypeHiring " + super.toString();
 	}
 	
 	@Override

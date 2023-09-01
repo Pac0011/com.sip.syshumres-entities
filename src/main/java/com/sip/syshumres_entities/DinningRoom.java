@@ -42,7 +42,7 @@ public class DinningRoom extends BaseEntityCatalog {
 
 	@Override
 	public String toString() {
-		return "DinningRoom" + super.toString();
+		return "DinningRoom " + super.toString();
 	}
 
 }

@@ -271,7 +271,7 @@ public class ManagingCompany extends BaseEntityCatalog {
 
 	@Override
 	public String toString() {
-		return "ManagingCompany" + super.toString();
+		return "ManagingCompany " + super.toString();
 	}
 
 }

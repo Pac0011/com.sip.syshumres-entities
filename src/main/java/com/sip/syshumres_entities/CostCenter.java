@@ -55,7 +55,7 @@ public class CostCenter extends BaseEntityCatalog {
 
 	@Override
 	public String toString() {
-		return "CostCenter" + super.toString();
+		return "CostCenter " + super.toString();
 	}
 
 }
