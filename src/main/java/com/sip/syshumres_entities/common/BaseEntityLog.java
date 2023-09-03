@@ -63,7 +63,7 @@ public class BaseEntityLog {
 
 	@Override
 	public String toString() {
-		return "BaseEntityLog [created=" + created + ", updated=" + updated + "]";
+		return " BaseEntityLog [created=" + created + ", updated=" + updated + "]";
 	}
 
 }

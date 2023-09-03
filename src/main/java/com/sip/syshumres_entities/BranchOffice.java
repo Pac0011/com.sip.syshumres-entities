@@ -193,12 +193,15 @@ public class BranchOffice extends BaseEntityCatalog {
 	public void setChilds(List<BranchOffice> childs) {
 		this.childs = childs;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "BranchOffice " + super.toString();
+		return "BranchOffice [phoneNumber=" + phoneNumber + ", extPhoneNumber=" + extPhoneNumber + ", shortPhoneNumber="
+				+ shortPhoneNumber + ", email=" + email + ", address=" + address + ", branchOfficeType="
+				+ branchOfficeType + ", costCenter=" + costCenter + ", region=" + region + ", father=" + father 
+				+ "," +  super.toString() + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

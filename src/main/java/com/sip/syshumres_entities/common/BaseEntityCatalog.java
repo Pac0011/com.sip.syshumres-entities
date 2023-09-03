@@ -70,6 +70,6 @@ public class BaseEntityCatalog extends BaseEntityLog {
 
 	@Override
 	public String toString() {
-		return "BaseEntityCatalog [id=" + id + ", description=" + description + ", enabled=" + enabled + super.toString();
+		return " BaseEntityCatalog [id=" + id + ", description=" + description + ", enabled=" + enabled + super.toString();
 	}
 }
