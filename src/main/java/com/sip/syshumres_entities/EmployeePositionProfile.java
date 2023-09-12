@@ -34,7 +34,7 @@ public class EmployeePositionProfile extends BaseEntityCatalog {
 	private boolean payroll;
 	
 	//Si el perfil tiene plantilla definida
-	@Column(columnDefinition = "boolean default false")
+	@Column(name ="has_staff", columnDefinition = "boolean default false")
 	private boolean hasStaff;
 	
 	//EL tipo de plantilla para el perfil
