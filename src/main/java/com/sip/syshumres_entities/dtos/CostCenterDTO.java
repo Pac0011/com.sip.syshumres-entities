@@ -3,6 +3,9 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 /**
  * Clase DTO. Vista para Centros de costos
  * 
@@ -15,10 +18,24 @@ public class CostCenterDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 2801476382058896191L;
 
+	public CostCenterDTO() {
+		super();
+	}
+
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String description;
 	
+	@Size(
+		max=12,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String code;
 	
 	private boolean enabled;

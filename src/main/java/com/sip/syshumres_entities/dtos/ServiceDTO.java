@@ -2,6 +2,9 @@ package com.sip.syshumres_entities.dtos;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import com.sip.syshumres_entities.Client;
 
 
@@ -12,8 +15,14 @@ public class ServiceDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public ServiceDTO() {
+		super();
+	}
+
 	private Long id;
 	
+	@NotEmpty
+	@Size(min=4, max=64)
 	private String code;
 	
 	private Client client;

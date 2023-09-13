@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 /**
  * Clase DTO. Vista para Prospectos
@@ -19,28 +25,72 @@ public class ProspectProfileDTO implements Serializable {
 
 	private Long id;
 
+	@Size(
+		min=12,
+		max=12,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String ecript;
 	
+	@NotEmpty
+	@Size(
+		min=17, 
+		max=19,
+		message = "Curp debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String curp;
 	
+	@Size(
+		max = 14,
+		message = "Rfc debe tener una longitud maxima de {max} caracteres"
+	)
 	private String rfc;
 
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String firstName;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String lastName;
 		
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String lastNameSecond;
 	
 	private String fullName;
 	
 	private EntitySelectDTO employeePosition;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateBirth;
 	
+	@Size(
+		max=12,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String phoneNumber;
 	
+	@Size(
+		max=12,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String cellNumber;
 	
+	@NotEmpty
+	@Email
+	@Size(max=64)
 	private String email;
 	
 	private EntitySelectDTO gender;
@@ -49,8 +99,16 @@ public class ProspectProfileDTO implements Serializable {
 	
 	private EntitySelectDTO branchOffice;
 	
+	@Size(
+		max=32,
+		message = "Nacionalidad debe tener una longitud máxima de {max} carácteres"
+	)
     private String nationality;
 	
+	@Size(
+		max=256,
+		message = "Observaciones debe tener una longitud máxima de {max} carácteres"
+	)
 	private String observations;
 	
 	public Long getId() {

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 /**
  * Clase DTO. Forma para Usuarios
  * 
@@ -16,13 +20,37 @@ public class UserDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -2770363460467778125L;
 
+	public UserDTO() {
+		super();
+	}
+
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		max=64,
+	    message = "El nombre debe tener una longitud máxima de {max} caracteres"
+	)
     private String firstName;
 	
+	@NotEmpty
+	@Size(
+		max=64,
+	    message = "El nombre de usuario debe tener una longitud máxima de {max} caracteres"
+	)
 	private String username;
 	
+	@NotEmpty
+	@Email
+	@Size(
+		max=64,
+	    message = "El email debe tener una longitud máxima de {max} caracteres"
+	)
     private String email;
+	
+	@NotEmpty
+	@Size(max=64)
+	private String password;
     
     private boolean enabled;
 	
@@ -66,6 +94,14 @@ public class UserDTO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public boolean isEnabled() {

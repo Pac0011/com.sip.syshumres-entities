@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 /**
  * Clase DTO. Forma para Areas
@@ -16,9 +19,19 @@ public class EmployeeAreaDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6897626775696378030L;
+	
+	public EmployeeAreaDTO() {
+		super();
+	}
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String description;
 	
 	private EntitySelectDTO costCenter;

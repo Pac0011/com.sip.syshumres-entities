@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.Address;
 
@@ -18,19 +22,44 @@ public class BranchOfficeDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1799527185250030060L;
+	
+	public BranchOfficeDTO() {
+		super();
+	}
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String description;
 	
+	@Size(
+		max=12,
+		message = "Número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
 	private String phoneNumber;
 	
+	@Size(
+		max=6,
+		message = "Extensión de número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
 	private String extPhoneNumber;
 	
+	@Size(
+		max=6,
+		message = "Corto de número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
 	private String shortPhoneNumber;
 	
 	private String fullPhoneNumber;
 	
+	@NotEmpty
+	@Email
+	@Size(max=64)
 	private String email;
 	
 	private EntitySelectDTO branchOfficeType;

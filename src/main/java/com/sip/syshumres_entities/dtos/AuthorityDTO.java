@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 /**
  * Clase DTO. Forma para Roles
  * 
@@ -15,11 +18,19 @@ public class AuthorityDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6715754285297926332L;
+	
+	public AuthorityDTO() {
+		super();
+	}
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(max=32)
 	private String description;
 	
+	@NotEmpty
+	@Size(max=64)
 	private String detail;
 	
     private List<EntitySelectDTO> users;
