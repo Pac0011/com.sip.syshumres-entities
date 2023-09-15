@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 
 /**
  * Clase DTO. Forma para datos laborales Empleados
@@ -11,6 +16,7 @@ import java.util.Objects;
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class EmployeeLaborDataDTO implements Serializable {
     /**
 	 * 
@@ -19,16 +25,36 @@ public class EmployeeLaborDataDTO implements Serializable {
 
 	private Long id;
 	
+	@Size(
+		max=128,
+		message = "Herramientas que usa debe tener una longitud máxima de {max} carácteres"
+	)
 	private String toolsUse;
 	
 	private Boolean haveExperienceSecurity;
 	
+	@Size(
+		max=256,
+		message = "Detalle experiencia debe tener una longitud máxima de {max} carácteres"
+	)
 	private String detailExperienceSecurity;
 	
+	@Size(
+		max=64,
+		message = "Contacto debe tener una longitud máxima de {max} carácteres"
+	)
 	private String contactLastJob;
 	
+	@Size(
+		max=16,
+		message = "Teléfono debe tener una longitud máxima de {max} carácteres"
+	)
 	private String phoneLastJob;
 	
+	@Size(
+		max=64,
+		message = "Empresa debe tener una longitud máxima de {max} carácteres"
+	)
 	private String companyLastJob;
 	
 	private float salaryLastJob;
@@ -39,12 +65,28 @@ public class EmployeeLaborDataDTO implements Serializable {
 	
 	private EntitySelectDTO reasonQuitJobLastJob;
 	
+	@Size(
+		max=128,
+		message = "Actividades debe tener una longitud máxima de {max} carácteres"
+	)
 	private String activitiesLastJob;
 	
+	@Size(
+		max=64,
+		message = "Contacto debe tener una longitud máxima de {max} carácteres"
+	)
 	private String contactPenultimateJob;
 	
+	@Size(
+		max=16,
+		message = "Teléfono debe tener una longitud máxima de {max} carácteres"
+	)
 	private String phonePenultimateJob;
 	
+	@Size(
+		max=64,
+		message = "Empresa debe tener una longitud máxima de {max} carácteres"
+	)
 	private String companyPenultimateJob;
 	
 	private float salaryPenultimateJob;
@@ -55,10 +97,22 @@ public class EmployeeLaborDataDTO implements Serializable {
 	
 	private EntitySelectDTO reasonQuitJobPenultimateJob;
 	
+	@Size(
+		max=64,
+		message = "Contacto debe tener una longitud máxima de {max} carácteres"
+	)
 	private String contactPenultimate2Job;
 	
+	@Size(
+		max=16,
+		message = "Teléfono debe tener una longitud máxima de {max} carácteres"
+	)
 	private String phonePenultimate2Job;
 	
+	@Size(
+		max=64,
+		message = "Empresa debe tener una longitud máxima de {max} carácteres"
+	)
 	private String companyPenultimate2Job;
 	
 	private float salaryPenultimate2Job;

@@ -115,7 +115,7 @@ public class EmployeeGeneralData extends BaseEntityLog {
 	@JoinColumn(name= "driver_license_validity_id")
 	private DriverLicenseValidity driverLicenseValidity;
 	
-	@JoinColumn(name= "driver_license_date")
+	@Column(name= "driver_license_date")
 	private Date driverLicenseDate;
 	
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})

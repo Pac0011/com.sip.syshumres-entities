@@ -3,15 +3,28 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 public class EmployeePositionProfileDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2247674233450164213L;
+	
+	public EmployeePositionProfileDTO() {
+		super();
+	}
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String description;
 	
 	private boolean payroll;

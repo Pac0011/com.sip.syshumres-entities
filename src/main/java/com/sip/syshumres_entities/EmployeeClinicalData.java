@@ -47,7 +47,10 @@ public class EmployeeClinicalData extends BaseEntityLog {
 	@Column(name = "medical_assistance", nullable=true, columnDefinition = "boolean default null")
 	private Boolean medicalAssistance;
 	
-	@Size(max=128)
+	@Size(
+		max=128,
+		message = "Las observaciones no debe ser mayor a {max} caracteres"
+	)
 	private String psychometry;
 	
 	@Column(name= "vaccinated", nullable=true, columnDefinition = "boolean default null")
@@ -58,11 +61,17 @@ public class EmployeeClinicalData extends BaseEntityLog {
 	@JoinColumn(name= "employee_type_health_id")
 	private EmployeeTypeHealth employeeTypeHealth;
 	
-	@Size(max=256)
+	@Size(
+		max=256,
+		message = "Las observaciones no debe ser mayor a {max} caracteres"
+	)
 	private String observations;
 	
 	//enfermedades declaradas
-	@Size(max=256)
+	@Size(
+		max=256,
+		message = "La declaracion no debe ser mayor a {max} caracteres"
+	)
 	@Column(name = "declared_diseases")
 	private String declaredDiseases;
 	
@@ -78,7 +87,7 @@ public class EmployeeClinicalData extends BaseEntityLog {
 	
 	@Size(
 		max=64,
-		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+		message = "La url del certificado no debe ser mayor a {max} caracteres"
 	)
     @Column(name = "covid__certificate", nullable = true)
 	private String covidCertificate;

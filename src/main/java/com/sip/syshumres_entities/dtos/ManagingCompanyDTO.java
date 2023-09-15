@@ -4,7 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.sip.syshumres_entities.Address;
 
 
@@ -14,32 +20,82 @@ import com.sip.syshumres_entities.Address;
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class ManagingCompanyDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -393488541872429673L;
+	
+	public ManagingCompanyDTO() {
+		super();
+	}
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=64,
+		message = "debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String description;
 	
+	@Size(
+		max=12,
+		message = "Número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
     private String phoneNumber;
     
+	@Size(
+		max=6,
+		message = "Extensión de número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
     private String extPhoneNumber;
 	
+	@Size(
+		max=6,
+		message = "Corto de número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
 	private String shortPhoneNumber;
 	
 	private String fullPhoneNumber;
 	
+	@NotEmpty
+	@Email
+	@Size(max=64)
 	private String email;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=256,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String companyName;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=13,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String rfc;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=13,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String employerRegistration;
 	
+	@NotEmpty
+	@Size(
+		min=1,
+		max=128,
+		message = "debe tener una longitud máxima de {max} carácteres"
+	)
 	private String legalRepresentative;
 	
 	private EntitySelectDTO typeHiring;

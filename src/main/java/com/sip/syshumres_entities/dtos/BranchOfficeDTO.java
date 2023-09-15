@@ -9,6 +9,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.sip.syshumres_entities.Address;
 
 /**
@@ -17,6 +19,7 @@ import com.sip.syshumres_entities.Address;
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class BranchOfficeDTO implements Serializable {
     /**
 	 * 

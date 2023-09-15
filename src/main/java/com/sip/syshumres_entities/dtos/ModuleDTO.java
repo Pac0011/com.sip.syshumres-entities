@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 /**
  * Clase DTO. Forma para Modulos
  * 
@@ -18,14 +21,30 @@ public class ModuleDTO implements Serializable {
 
 	private Long id;
 	
+	@NotEmpty
+	@Size(max=32)
 	private String description;
 	
+	@NotEmpty
+	@Size(max=64)
 	private String detail;
 	
+	@NotEmpty
+	@Size(
+		max=64,
+	    message = "La url del endpoint debe tener una longitud máxima de {max} caracteres"
+	)
     private String url;
     
+	@NotEmpty
+	@Size(
+		max=64,
+	    message = "La url del menu debe tener una longitud máxima de {max} caracteres"
+	)
     private String urlMenu;
 	
+	@NotEmpty
+	@Size(max=32)
 	private String icon;
 	
     private EntitySelectDTO father;
@@ -35,6 +54,10 @@ public class ModuleDTO implements Serializable {
 	private List<EntitySelectDTO> authorities;
 	
 	private boolean enabled;
+	
+	public ModuleDTO() {
+		super();
+	}
 
 	public Long getId() {
 		return id;

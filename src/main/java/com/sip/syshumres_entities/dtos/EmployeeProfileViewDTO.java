@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 /**
  * Clase DTO. Vista para perfil Empleado
  * 
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class EmployeeProfileViewDTO implements Serializable {
 	/**
 	 * 

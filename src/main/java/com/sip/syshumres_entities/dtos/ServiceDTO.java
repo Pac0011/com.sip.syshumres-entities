@@ -13,7 +13,7 @@ public class ServiceDTO implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -918426954810935024L;	
 	
 	public ServiceDTO() {
 		super();

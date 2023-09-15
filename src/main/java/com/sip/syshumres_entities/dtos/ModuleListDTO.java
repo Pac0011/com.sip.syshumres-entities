@@ -23,6 +23,10 @@ public class ModuleListDTO implements Serializable {
     private String father;
 	
 	private List<ModuleListDTO> childs;
+	
+	public ModuleListDTO() {
+		super();
+	}
 
 	public ModuleListDTO(Long id, String description, List<ModuleListDTO> childs) {
 		super();
@@ -88,8 +92,5 @@ public class ModuleListDTO implements Serializable {
 	public String toString() {
 		return "ModuleListDTO [id=" + id + ", description=" + description + ", father=" + father + "]";
 	}
-	
-	
-	
 
 }

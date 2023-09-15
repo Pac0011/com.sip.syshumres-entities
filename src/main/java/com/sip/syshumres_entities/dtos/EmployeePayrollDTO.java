@@ -3,7 +3,11 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.sip.syshumres_entities.EmployeeAddress;
 
 
@@ -13,6 +17,7 @@ import com.sip.syshumres_entities.EmployeeAddress;
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class EmployeePayrollDTO implements Serializable {    
 	/**
 	 * 
@@ -21,8 +26,18 @@ public class EmployeePayrollDTO implements Serializable {
 
 	private Long id;
 	
+	@Size(
+	    min = 12,
+		max = 14,
+		message = "Rfc debe tener una longitud entre {min} y {max} caracteres"
+	)
     private String rfc;
 	
+	@Size(
+		min=11, 
+		max=13,
+		message = "Nss debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String nss;
 	
 	private EntitySelectDTO typeHiring;
@@ -31,6 +46,10 @@ public class EmployeePayrollDTO implements Serializable {
 	
 	private float salaryMonthly;
 
+	@Size(
+		max = 128,
+		message = "Salario en letra debe tener máximo {max} caracteres"
+	)
 	private String salaryMonthlyLetter;
 	
 	private float dailySalary;
@@ -40,6 +59,10 @@ public class EmployeePayrollDTO implements Serializable {
 
 	private EntitySelectDTO payrollType;
 
+	@Size(
+		max = 10,
+		message = "No. de crédito Infonavit debe tener máximo {max} caracteres"
+	)
 	private String creditNumberInfonavit;
 	
 	private float sdb;
@@ -48,11 +71,23 @@ public class EmployeePayrollDTO implements Serializable {
 
 	private EntitySelectDTO employeeBank;
 
+	@Size(
+		max = 12,
+		message = "Cuenta de banco debe tener máximo {max} caracteres"
+	)
 	private String bankAccount;
 	
-	private String clabe;
-	
+	@Size(
+		max=64,
+		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+	)
 	private String bankAccountFile;
+	
+	@Size(
+		max = 19,
+		message = "Clabe interbancaria debe tener máximo {max} caracteres"
+	)
+	private String clabe;
 	
 	private Boolean haveInfonavitCredit;
 
@@ -65,7 +100,11 @@ public class EmployeePayrollDTO implements Serializable {
 	private float amountAlimony;
 			
 	private Boolean haveFonacotCredit;
-			
+		
+	@Size(
+		max = 16,
+		message = "No. crédito Fonacot debe tener máximo {max} caracteres"
+	)
 	private String numberFonacotCredit;
 			
 	private float amountFactorDiscountFonacot;

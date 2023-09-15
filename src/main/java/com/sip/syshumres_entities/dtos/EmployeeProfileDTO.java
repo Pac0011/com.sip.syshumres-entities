@@ -5,7 +5,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.sip.syshumres_entities.EmployeeAddress;
 
 
@@ -15,40 +23,102 @@ import com.sip.syshumres_entities.EmployeeAddress;
  * @author Prong
  * @version 2.0
  */
+@JsonInclude(Include.NON_NULL)
 public class EmployeeProfileDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 718343071254050577L;
 
+	public EmployeeProfileDTO() {
+		super();
+	}
+
 	private Long id;
 	
+	@NotEmpty
+	@Size(
+		min=17, 
+		max=19,
+		message = "Curp debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String curp;
 	
+	@Size(
+		max=64,
+		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+	)
 	private String fileCurp;
 	
+	@Size(
+		max=64,
+		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+	)
 	private String frontPhoto;
 	
+	@Size(
+		max=64,
+		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+	)
 	private String leftPhoto;
 	
+	@Size(
+		max=64,
+		message = "La url de la imagen no debe ser mayor a {max} caracteres"
+	)
 	private String rightPhoto;
 	
+	@Size(
+		min=9,
+		max=9,
+		message = "El No. de empleado debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String employeeNumber;
 	
 	private EntitySelectDTO employeeType;
 	
 	private String ecript;
 
+	@NotEmpty
+	@Size(
+		min=1, 
+		max=64,
+		message = "Nombre debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String firstName;
 	
+	@NotEmpty
+	@Size(
+		min=1, 
+		max=64,
+		message = "Apellido paterno debe tener una longitud entre {min} y {max} caracteres"
+	)
 	private String lastName;
 	
+	@Size(
+		max=64,
+		message = "Apellido materno debe tener una longitud máxima de {max} caracteres"
+	)
 	private String lastNameSecond;
 	
+	@Size(
+		max=12,
+		message = "Número teléfono debe tener una longitud máxima de {max} caracteres"
+	)
 	private String phoneNumber;
 	
+	@Size(
+		max=12,
+		message = "Número celular debe tener una longitud mñaxima de {max} caracteres"
+	)
 	private String cellNumber;
 	
+	@NotEmpty
+	@Email
+	@Size(
+		max=64,
+		message = "Email debe tener una longitud máxima de {max} caracteres"
+	)
 	private String email;
 	
     private EntitySelectDTO employeePosition;
@@ -57,8 +127,10 @@ public class EmployeeProfileDTO implements Serializable {
 	
 	private EntitySelectDTO employeeArea;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateEmployment;
 		
+	@Temporal(TemporalType.DATE)
 	private Date dateLeave;
 	
 	private EntitySelectDTO service;
@@ -73,6 +145,7 @@ public class EmployeeProfileDTO implements Serializable {
 	
 	private EntitySelectDTO gender;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateBirth;
 	
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
