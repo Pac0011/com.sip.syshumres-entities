@@ -20,6 +20,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de info para nomina de empleados
@@ -29,10 +34,12 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_payrolls")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeePayroll extends BaseEntityLog {
-	
-	public EmployeePayroll() {}
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -168,234 +175,6 @@ public class EmployeePayroll extends BaseEntityLog {
 	
 	@Column(name = "amount_sgmm", columnDefinition = "float default 0")
 	private float amountSgmm;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getRfc() {
-		return rfc;
-	}
-
-	public void setRfc(String rfc) {
-		this.rfc = rfc;
-	}
-
-	public String getNss() {
-		return nss;
-	}
-
-	public void setNss(String nss) {
-		this.nss = nss;
-	}
-
-	public float getSalaryMonthly() {
-		return salaryMonthly;
-	}
-
-	public void setSalaryMonthly(float salaryMonthly) {
-		this.salaryMonthly = salaryMonthly;
-	}
-
-	public String getSalaryMonthlyLetter() {
-		return salaryMonthlyLetter;
-	}
-
-	public void setSalaryMonthlyLetter(String salaryMonthlyLetter) {
-		this.salaryMonthlyLetter = salaryMonthlyLetter;
-	}
-
-	public EmployeeAddress getEmployeeAddressFiscal() {
-		return employeeAddressFiscal;
-	}
-
-	public void setEmployeeAddressFiscal(EmployeeAddress employeeAddressFiscal) {
-		this.employeeAddressFiscal = employeeAddressFiscal;
-	}
-
-	public PayrollType getPayrollType() {
-		return payrollType;
-	}
-
-	public void setPayrollType(PayrollType payrollType) {
-		this.payrollType = payrollType;
-	}
-
-	public String getCreditNumberInfonavit() {
-		return creditNumberInfonavit;
-	}
-
-	public void setCreditNumberInfonavit(String creditNumberInfonavit) {
-		this.creditNumberInfonavit = creditNumberInfonavit;
-	}
-
-	public InvoicedResourceType getInvoicedResourceType() {
-		return invoicedResourceType;
-	}
-
-	public void setInvoicedResourceType(InvoicedResourceType invoicedResourceType) {
-		this.invoicedResourceType = invoicedResourceType;
-	}
-
-	public float getSdb() {
-		return sdb;
-	}
-
-	public void setSdb(float sdb) {
-		this.sdb = sdb;
-	}
-
-	public float getSdi() {
-		return sdi;
-	}
-
-	public void setSdi(float sdi) {
-		this.sdi = sdi;
-	}
-
-	public EmployeeBank getEmployeeBank() {
-		return employeeBank;
-	}
-
-	public void setEmployeeBank(EmployeeBank employeeBank) {
-		this.employeeBank = employeeBank;
-	}
-
-	public String getBankAccount() {
-		return bankAccount;
-	}
-
-	public void setBankAccount(String bankAccount) {
-		this.bankAccount = bankAccount;
-	}
-
-	public String getBankAccountFile() {
-		return bankAccountFile;
-	}
-
-	public void setBankAccountFile(String bankAccountFile) {
-		this.bankAccountFile = bankAccountFile;
-	}
-
-	public String getClabe() {
-		return clabe;
-	}
-
-	public void setClabe(String clabe) {
-		this.clabe = clabe;
-	}
-
-	public FactorDiscountInfonavit getFactorDiscountInfonavit() {
-		return factorDiscountInfonavit;
-	}
-
-	public void setFactorDiscountInfonavit(FactorDiscountInfonavit factorDiscountInfonavit) {
-		this.factorDiscountInfonavit = factorDiscountInfonavit;
-	}
-
-	public float getAmountFactorDiscountInfonavit() {
-		return amountFactorDiscountInfonavit;
-	}
-
-	public void setAmountFactorDiscountInfonavit(float amountFactorDiscountInfonavit) {
-		this.amountFactorDiscountInfonavit = amountFactorDiscountInfonavit;
-	}
-
-	public float getAmountAlimony() {
-		return amountAlimony;
-	}
-
-	public void setAmountAlimony(float amountAlimony) {
-		this.amountAlimony = amountAlimony;
-	}
-
-	public String getNumberFonacotCredit() {
-		return numberFonacotCredit;
-	}
-
-	public void setNumberFonacotCredit(String numberFonacotCredit) {
-		this.numberFonacotCredit = numberFonacotCredit;
-	}
-
-	public float getAmountFactorDiscountFonacot() {
-		return amountFactorDiscountFonacot;
-	}
-
-	public void setAmountFactorDiscountFonacot(float amountFactorDiscountFonacot) {
-		this.amountFactorDiscountFonacot = amountFactorDiscountFonacot;
-	}
-
-	public TypeHiring getTypeHiring() {
-		return typeHiring;
-	}
-
-	public void setTypeHiring(TypeHiring typeHiring) {
-		this.typeHiring = typeHiring;
-	}
-	
-	public DinningRoom getDinningRoom() {
-		return dinningRoom;
-	}
-
-	public void setDinningRoom(DinningRoom dinningRoom) {
-		this.dinningRoom = dinningRoom;
-	}
-
-	public Boolean isHaveInfonavitCredit() {
-		return haveInfonavitCredit;
-	}
-
-	public void setHaveInfonavitCredit(Boolean haveInfonavitCredit) {
-		this.haveInfonavitCredit = haveInfonavitCredit;
-	}
-
-	public Boolean isHaveAlimony() {
-		return haveAlimony;
-	}
-
-	public void setHaveAlimony(Boolean haveAlimony) {
-		this.haveAlimony = haveAlimony;
-	}
-
-	public Boolean isHaveFonacotCredit() {
-		return haveFonacotCredit;
-	}
-
-	public void setHaveFonacotCredit(Boolean haveFonacotCredit) {
-		this.haveFonacotCredit = haveFonacotCredit;
-	}
-
-	public Boolean getHaveSgmm() {
-		return haveSgmm;
-	}
-
-	public void setHaveSgmm(Boolean haveSgmm) {
-		this.haveSgmm = haveSgmm;
-	}
-
-	public float getAmountSgmm() {
-		return amountSgmm;
-	}
-
-	public void setAmountSgmm(float amountSgmm) {
-		this.amountSgmm = amountSgmm;
-	}
-
-	public Boolean getHaveInfonavitCredit() {
-		return haveInfonavitCredit;
-	}
-
-	public Boolean getHaveAlimony() {
-		return haveAlimony;
-	}
-
-	public Boolean getHaveFonacotCredit() {
-		return haveFonacotCredit;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -415,12 +194,5 @@ public class EmployeePayroll extends BaseEntityLog {
 		
 		return this.id != null && this.id.equals(s.getId());
 	}
-
-	@Override
-	public String toString() {
-		return "EmployeePayroll [id=" + id + ", rfc=" + rfc + ", nss=" + nss + ", typeHiring=" + typeHiring
-				+ ", invoicedResourceType=" + invoicedResourceType + ", salaryMonthly=" + salaryMonthly
-				+ ", salaryMonthlyLetter=" + salaryMonthlyLetter + "]";
-	}	
 
 }

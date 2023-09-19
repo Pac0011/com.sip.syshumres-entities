@@ -24,6 +24,10 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Catalogo de Administradoras para contratación Outsourcing
  * 
@@ -32,6 +36,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="managing_companies")
+@Getter
+@Setter
+@ToString
 public class ManagingCompany extends BaseEntityCatalog {
 
 	public ManagingCompany() {
@@ -154,102 +161,6 @@ public class ManagingCompany extends BaseEntityCatalog {
 		this.branchOffices.remove(branchOffice);
 	}
 	
-	public String getLegalRepresentative() {
-		return legalRepresentative;
-	}
-
-	public void setLegalRepresentative(String legalRepresentative) {
-		this.legalRepresentative = legalRepresentative;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getExtPhoneNumber() {
-		return extPhoneNumber;
-	}
-
-	public void setExtPhoneNumber(String extPhoneNumber) {
-		this.extPhoneNumber = extPhoneNumber;
-	}
-
-	public String getShortPhoneNumber() {
-		return shortPhoneNumber;
-	}
-
-	public void setShortPhoneNumber(String shortPhoneNumber) {
-		this.shortPhoneNumber = shortPhoneNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getRfc() {
-		return rfc;
-	}
-
-	public void setRfc(String rfc) {
-		this.rfc = rfc;
-	}
-
-	public String getEmployerRegistration() {
-		return employerRegistration;
-	}
-
-	public void setEmployerRegistration(String employerRegistration) {
-		this.employerRegistration = employerRegistration;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public Address getAddressFiscal() {
-		return addressFiscal;
-	}
-
-	public void setAddressFiscal(Address addressFiscal) {
-		this.addressFiscal = addressFiscal;
-	}
-
-	public List<BranchOffice> getBranchOffices() {
-		return branchOffices;
-	}
-
-	public void setBranchOffices(List<BranchOffice> branchOffices) {
-		this.branchOffices = branchOffices;
-	}
-	
-	public TypeHiring getTypeHiring() {
-		return typeHiring;
-	}
-
-	public void setTypeHiring(TypeHiring typeHiring) {
-		this.typeHiring = typeHiring;
-	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());
@@ -268,10 +179,5 @@ public class ManagingCompany extends BaseEntityCatalog {
 		
 		return this.getId() != null && this.getId().equals(s.getId());
 	}
-
-	@Override
-	public String toString() {
-		return "ManagingCompany " + super.toString();
-	}
-
+	
 }

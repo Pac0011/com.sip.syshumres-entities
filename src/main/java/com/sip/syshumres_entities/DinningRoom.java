@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -7,6 +9,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.DecimalMax;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Clase Entity. Catalogo de menus para comedor
@@ -16,9 +23,11 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="dinning_room")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class DinningRoom extends BaseEntityCatalog {
-	
-	public DinningRoom() {}
 	
 	public DinningRoom(Long id, String description) {
 		this.setId(id);
@@ -32,17 +41,23 @@ public class DinningRoom extends BaseEntityCatalog {
 	@Column(columnDefinition = "float default 0")
 	private float price;
 	
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 
 	@Override
-	public String toString() {
-		return "DinningRoom " + super.toString();
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof DinningRoom)) {
+			return false;
+		}
+		DinningRoom s = (DinningRoom) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
 	}
 
 }

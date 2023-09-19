@@ -10,6 +10,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase DTO. Forma para Areas
@@ -18,15 +23,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeAreaDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6897626775696378030L;
-	
-	public EmployeeAreaDTO() {
-		super();
-	}
 
 	private Long id;
 	
@@ -45,54 +50,6 @@ public class EmployeeAreaDTO implements Serializable {
 	private List<EntitySelectDTO> childs;
 	
 	private boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public EntitySelectDTO getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(EntitySelectDTO costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public EntitySelectDTO getFather() {
-		return father;
-	}
-
-	public void setFather(EntitySelectDTO father) {
-		this.father = father;
-	}
-
-	public List<EntitySelectDTO> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<EntitySelectDTO> childs) {
-		this.childs = childs;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -113,12 +70,6 @@ public class EmployeeAreaDTO implements Serializable {
 			return false;
 		EmployeeAreaDTO other = (EmployeeAreaDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeAreaDTO [id=" + id + ", description=" + description + ", costCenter=" + costCenter
-				+ ", enabled=" + enabled + "]";
 	}
 	
 }

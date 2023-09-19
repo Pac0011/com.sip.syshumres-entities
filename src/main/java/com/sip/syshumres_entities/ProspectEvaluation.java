@@ -14,6 +14,11 @@ import javax.validation.constraints.Size;
 
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de evaluaciones de Prospectos
@@ -23,6 +28,10 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="prospect_evaluation")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ProspectEvaluation extends BaseEntityLog {
 	
 	@Id
@@ -42,38 +51,6 @@ public class ProspectEvaluation extends BaseEntityLog {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="evaluation_id")
 	private Evaluation evaluation;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getResponse() {
-		return response;
-	}
-
-	public void setResponse(String response) {
-		this.response = response;
-	}
-
-	public ProspectProfile getProspectProfile() {
-		return prospectProfile;
-	}
-
-	public void setProspectProfile(ProspectProfile prospectProfile) {
-		this.prospectProfile = prospectProfile;
-	}
-
-	public Evaluation getEvaluation() {
-		return evaluation;
-	}
-
-	public void setEvaluation(Evaluation evaluation) {
-		this.evaluation = evaluation;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -92,11 +69,6 @@ public class ProspectEvaluation extends BaseEntityLog {
 		ProspectEvaluation s = (ProspectEvaluation) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "ProspectEvaluation [id=" + id + ", prospectProfile=" + prospectProfile + "]";
 	}
 	
 }

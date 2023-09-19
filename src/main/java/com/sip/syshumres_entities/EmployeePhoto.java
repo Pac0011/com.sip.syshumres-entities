@@ -12,6 +12,11 @@ import javax.validation.constraints.Size;
 
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de fotos de empleados
@@ -21,10 +26,12 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_photos")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeePhoto extends BaseEntityLog {
-	
-	public EmployeePhoto() {}
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -49,38 +56,6 @@ public class EmployeePhoto extends BaseEntityLog {
 	)
 	@Column(name = "photo_left")
 	private String photoLeft;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getPhotoFront() {
-		return photoFront;
-	}
-
-	public void setPhotoFront(String photoFront) {
-		this.photoFront = photoFront;
-	}
-
-	public String getPhotoRight() {
-		return photoRight;
-	}
-
-	public void setPhotoRight(String photoRight) {
-		this.photoRight = photoRight;
-	}
-
-	public String getPhotoLeft() {
-		return photoLeft;
-	}
-
-	public void setPhotoLeft(String photoLeft) {
-		this.photoLeft = photoLeft;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -99,11 +74,6 @@ public class EmployeePhoto extends BaseEntityLog {
 		EmployeePhoto s = (EmployeePhoto) obj;
 		
 		return this.id != null && this.id.equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeePhoto [id=" + id + "]";
 	}
 	
 }

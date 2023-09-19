@@ -22,11 +22,19 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.Email;
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 /**
@@ -37,10 +45,11 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_profiles")
+@Getter
+@Setter
+@NoArgsConstructor
 public class EmployeeProfile extends BaseEntityLog {
-	
-	public EmployeeProfile() {}
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -99,7 +108,7 @@ public class EmployeeProfile extends BaseEntityLog {
 	public String employeeNumber;
 
 	//Hash para crear carpeta para documentos de empleado separadas
-	//@Size(min=12, max=12)
+	@Size(max=12)
 	private String ecript;
 	
 	@Transient
@@ -138,6 +147,8 @@ public class EmployeeProfile extends BaseEntityLog {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_birth")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateBirth;
 	
 	@Size(
@@ -177,11 +188,15 @@ public class EmployeeProfile extends BaseEntityLog {
 	//fecha de alta
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_employment")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateEmployment;
 		
 	//fecha de baja
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_leave")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateLeave;
 	
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
@@ -249,262 +264,6 @@ public class EmployeeProfile extends BaseEntityLog {
 	@JsonIgnoreProperties(value = {"employeeProfile"}, allowSetters = true)
 	@OneToMany(mappedBy = "employeeProfile", fetch = FetchType.LAZY)
 	private List<EmployeeDocument> employeeDocuments;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getEmployeeNumber() {
-		return employeeNumber;
-    }
-
-	public void setEmployeeNumber(String employeeNumber) {
-		this.employeeNumber = employeeNumber;
-	}
-
-	public String getCurp() {
-		return curp;
-	}
-
-	public void setCurp(String curp) {
-		this.curp = curp;
-	}
-
-	public String getEcript() {
-		return ecript;
-	}
-
-	public void setEcript(String ecript) {
-		this.ecript = ecript;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		if (firstName == null || firstName.equals("")) { throw new IllegalArgumentException("Nombre es invalido"); }
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getLastNameSecond() {
-		return lastNameSecond;
-	}
-
-	public void setLastNameSecond(String lastNameSecond) {
-		this.lastNameSecond = lastNameSecond;
-	}
-
-	public Date getDateBirth() {
-		return dateBirth;
-	}
-
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
-	}
-
-	public EmployeeAddress getEmployeeAddress() {
-		return employeeAddress;
-	}
-
-	public void setEmployeeAddress(EmployeeAddress employeeAddress) {
-		this.employeeAddress = employeeAddress;
-	}
-
-	public BranchOffice getBranchOffice() {
-		return branchOffice;
-	}
-
-	public void setBranchOffice(BranchOffice branchOffice) {
-		this.branchOffice = branchOffice;
-	}
-
-	public EmployeeStatus getEmployeeStatus() {
-		return employeeStatus;
-	}
-
-	public void setEmployeeStatus(EmployeeStatus employeeStatus) {
-		this.employeeStatus = employeeStatus;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getCellNumber() {
-		return cellNumber;
-	}
-
-	public void setCellNumber(String cellNumber) {
-		this.cellNumber = cellNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public EmployeePosition getEmployeePosition() {
-		return employeePosition;
-	}
-
-	public void setEmployeePosition(EmployeePosition employeePosition) {
-		this.employeePosition = employeePosition;
-	}
-
-	public EmployeePositionProfile getEmployeePositionProfile() {
-		return employeePositionProfile;
-	}
-
-	public void setEmployeePositionProfile(EmployeePositionProfile employeePositionProfile) {
-		this.employeePositionProfile = employeePositionProfile;
-	}
-
-	public EmployeeArea getEmployeeArea() {
-		return employeeArea;
-	}
-
-	public void setEmployeeArea(EmployeeArea employeeArea) {
-		this.employeeArea = employeeArea;
-	}
-
-	public Date getDateEmployment() {
-		return dateEmployment;
-	}
-
-	public void setDateEmployment(Date dateEmployment) {
-		this.dateEmployment = dateEmployment;
-	}
-
-	public Date getDateLeave() {
-		return dateLeave;
-	}
-
-	public void setDateLeave(Date dateLeave) {
-		this.dateLeave = dateLeave;
-	}
-
-	public MaritalStatus getMaritalStatus() {
-		return maritalStatus;
-	}
-
-	public void setMaritalStatus(MaritalStatus maritalStatus) {
-		this.maritalStatus = maritalStatus;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
-	public EmployeePhoto getEmployeePhoto() {
-		return employeePhoto;
-	}
-
-	public void setEmployeePhoto(EmployeePhoto employeePhoto) {
-		this.employeePhoto = employeePhoto;
-	}
-
-	public EmployeeGeneralData getEmployeeGeneralData() {
-		return employeeGeneralData;
-	}
-
-	public void setEmployeeGeneralData(EmployeeGeneralData employeeGeneralData) {
-		this.employeeGeneralData = employeeGeneralData;
-	}
-
-	public EmployeePayroll getEmployeePayroll() {
-		return employeePayroll;
-	}
-
-	public void setEmployeePayroll(EmployeePayroll employeePayroll) {
-		this.employeePayroll = employeePayroll;
-	}
-
-	public EmployeeOperation getEmployeeOperation() {
-		return employeeOperation;
-	}
-
-	public void setEmployeeOperation(EmployeeOperation employeeOperation) {
-		this.employeeOperation = employeeOperation;
-	}
-	
-	public EmployeeClinicalData getEmployeeClinicalData() {
-		return employeeClinicalData;
-	}
-
-	public void setEmployeeClinicalData(EmployeeClinicalData employeeClinicalData) {
-		this.employeeClinicalData = employeeClinicalData;
-	}
-
-	public EmployeeLaborData getEmployeeLaborData() {
-		return employeeLaborData;
-	}
-
-	public void setEmployeeLaborData(EmployeeLaborData employeeLaborData) {
-		this.employeeLaborData = employeeLaborData;
-	}
-
-	public String getFileCurp() {
-		return fileCurp;
-	}
-
-	public void setFileCurp(String fileCurp) {
-		this.fileCurp = fileCurp;
-	}
-
-	public String getFrontPhoto() {
-		return frontPhoto;
-	}
-
-	public void setFrontPhoto(String frontPhoto) {
-		this.frontPhoto = frontPhoto;
-	}
-
-	public String getLeftPhoto() {
-		return leftPhoto;
-	}
-
-	public void setLeftPhoto(String leftPhoto) {
-		this.leftPhoto = leftPhoto;
-	}
-
-	public String getRightPhoto() {
-		return rightPhoto;
-	}
-
-	public void setRightPhoto(String rightPhoto) {
-		this.rightPhoto = rightPhoto;
-	}
-
-	public List<EmployeeDocument> getEmployeeDocuments() {
-		return employeeDocuments;
-	}
-
-	public void setEmployeeDocuments(List<EmployeeDocument> employeeDocuments) {
-		this.employeeDocuments = employeeDocuments;
-	}
 	
 	@Override
 	public int hashCode() {

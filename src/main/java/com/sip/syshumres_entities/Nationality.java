@@ -10,6 +10,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de Nacionalidades
@@ -19,12 +22,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="nationality")
+@NoArgsConstructor
+@ToString
 public class Nationality extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "Nationality " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

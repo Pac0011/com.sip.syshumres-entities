@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de parentesco empleado
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="relationship_person")
+@NoArgsConstructor
+@ToString
 public class RelationshipPerson extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "RelationshipPerson " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

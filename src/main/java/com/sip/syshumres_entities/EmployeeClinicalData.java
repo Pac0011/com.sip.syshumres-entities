@@ -16,6 +16,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de datos clinicos para empleados
@@ -25,10 +30,12 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_clinical_data")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeClinicalData extends BaseEntityLog {
-	
-	public EmployeeClinicalData() {}
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -92,115 +99,6 @@ public class EmployeeClinicalData extends BaseEntityLog {
     @Column(name = "covid__certificate", nullable = true)
 	private String covidCertificate;
 	
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public BloodType getBloodType() {
-		return bloodType;
-	}
-
-	public void setBloodType(BloodType bloodType) {
-		this.bloodType = bloodType;
-	}
-
-	public String getPsychometry() {
-		return psychometry;
-	}
-
-	public void setPsychometry(String psychometry) {
-		this.psychometry = psychometry;
-	}
-	
-	public Boolean isVaccinated() {
-		return vaccinated;
-	}
-
-	public void setVaccinated(Boolean vaccinated) {
-		this.vaccinated = vaccinated;
-	}
-
-	public EmployeeTypeHealth getEmployeeTypeHealth() {
-		return employeeTypeHealth;
-	}
-
-	public void setEmployeeTypeHealth(EmployeeTypeHealth employeeTypeHealth) {
-		this.employeeTypeHealth = employeeTypeHealth;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
-	public VaccineDose getVaccineDose() {
-		return vaccineDose;
-	}
-
-	public void setVaccineDose(VaccineDose vaccineDose) {
-		this.vaccineDose = vaccineDose;
-	}
-
-	public CovidVaccine getCovidVaccine() {
-		return covidVaccine;
-	}
-
-	public void setCovidVaccine(CovidVaccine covidVaccine) {
-		this.covidVaccine = covidVaccine;
-	}
-
-	public float getWeight() {
-		return weight;
-	}
-
-	public void setWeight(float weight) {
-		this.weight = weight;
-	}
-
-	public float getHeight() {
-		return height;
-	}
-
-	public void setHeight(float height) {
-		this.height = height;
-	}
-
-	public Boolean isMedicalAssistance() {
-		return medicalAssistance;
-	}
-
-	public void setMedicalAssistance(Boolean medicalAssistance) {
-		this.medicalAssistance = medicalAssistance;
-	}
-
-	public String getDeclaredDiseases() {
-		return declaredDiseases;
-	}
-
-	public void setDeclaredDiseases(String declaredDiseases) {
-		this.declaredDiseases = declaredDiseases;
-	}
-
-	public String getCovidCertificate() {
-		return covidCertificate;
-	}
-
-	public void setCovidCertificate(String covidCertificate) {
-		this.covidCertificate = covidCertificate;
-	}
-
-	public Boolean getMedicalAssistance() {
-		return medicalAssistance;
-	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());
@@ -218,13 +116,6 @@ public class EmployeeClinicalData extends BaseEntityLog {
 		EmployeeClinicalData s = (EmployeeClinicalData) obj;
 		
 		return this.id != null && this.id.equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeClinicalData [id=" + id + ", bloodType=" + bloodType + ", weight=" + weight + ", height="
-				+ height + ", medicalAssistance=" + medicalAssistance + ", psychometry=" + psychometry + ", vaccinated="
-				+ vaccinated + ", employeeTypeHealth=" + employeeTypeHealth + "]";
 	}
 	
 }

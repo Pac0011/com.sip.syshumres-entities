@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +11,20 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /*
  * Catalogo de clientes
  */
 @Entity
 @Table(name="clients")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Client {
 	
 	@Id
@@ -26,29 +37,10 @@ public class Client {
 	
 	@Column(columnDefinition = "boolean default true")
 	private Boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 	
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 
 	@Override

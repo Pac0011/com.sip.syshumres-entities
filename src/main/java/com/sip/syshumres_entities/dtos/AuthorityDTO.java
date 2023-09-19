@@ -10,6 +10,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase DTO. Forma para Roles
  * 
@@ -17,16 +22,16 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class AuthorityDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6715754285297926332L;
 	
-	public AuthorityDTO() {
-		super();
-	}
-
 	private Long id;
 	
 	@NotEmpty
@@ -43,63 +48,7 @@ public class AuthorityDTO implements Serializable {
     
     private List<ModuleListDTO> modulesDtos;
     
-	private boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<EntitySelectDTO> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<EntitySelectDTO> users) {
-		this.users = users;
-	}
-
-	public List<EntitySelectDTO> getModules() {
-		return modules;
-	}
-
-	public void setModules(List<EntitySelectDTO> modules) {
-		this.modules = modules;
-	}
-
-	public List<ModuleListDTO> getModulesDtos() {
-		return modulesDtos;
-	}
-
-	public void setModulesDtos(List<ModuleListDTO> modulesDtos) {
-		this.modulesDtos = modulesDtos;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+	private boolean enabled;	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -120,12 +69,6 @@ public class AuthorityDTO implements Serializable {
 			return false;
 		AuthorityDTO other = (AuthorityDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "AuthorityDTO [id=" + id + ", description=" + description + ", detail=" + detail + ", enabled=" + enabled
-				+ "]";
 	}
 	
 }

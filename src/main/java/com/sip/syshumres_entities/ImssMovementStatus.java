@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de estatus de movimientos del IMSS
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="imss_movement_status")
+@NoArgsConstructor
+@ToString
 public class ImssMovementStatus extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "ImssMovementStatus " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

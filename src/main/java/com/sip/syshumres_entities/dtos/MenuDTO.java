@@ -4,12 +4,21 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase DTO. Menus la frontend de cada modulo agrupados en los roles
  * 
  * @author Prong
  * @version 2.0
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class MenuDTO implements Serializable {
 	/**
 	 * 
@@ -43,38 +52,6 @@ public class MenuDTO implements Serializable {
 		this.c = childs;
 	}
 
-	public String getN() {
-		return n;
-	}
-
-	public void setN(String n) {
-		this.n = n;
-	}
-
-	public String getU() {
-		return u;
-	}
-
-	public void setU(String u) {
-		this.u = u;
-	}
-
-	public String getI() {
-		return i;
-	}
-
-	public void setI(String i) {
-		this.i = i;
-	}
-
-	public List<MenuDTO> getC() {
-		return c;
-	}
-
-	public void setC(List<MenuDTO> c) {
-		this.c = c;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -94,11 +71,6 @@ public class MenuDTO implements Serializable {
 			return false;
 		MenuDTO other = (MenuDTO) obj;
 		return Objects.equals(n, other.n) && Objects.equals(u, other.u);
-	}
-
-	@Override
-	public String toString() {
-		return "MenuDTO [n=" + n + ", u=" + u + ", i=" + i + ", c=" + c + "]";
 	}
 	
 }

@@ -5,10 +5,13 @@ import java.util.Objects;
 
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.sip.syshumres_entities.HiringDocuments;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Clase DTO. Forma para documentos de empleados
@@ -17,50 +20,25 @@ import com.sip.syshumres_entities.HiringDocuments;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeDocumentDTO implements Serializable {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 6436771854094960816L;
-	
-	public EmployeeDocumentDTO() {
-		super();
-	}
 
 	private Long id;
     
-    @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
-    private HiringDocuments hiringDocuments;
+    private EntitySelectDTO hiringDocuments;
     
     @Size(
 		max=128,
 		message = "debe tener una longitud máxima de {max} carácteres"
 	)
     private String document;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public HiringDocuments getHiringDocuments() {
-		return hiringDocuments;
-	}
-
-	public void setHiringDocuments(HiringDocuments hiringDocuments) {
-		this.hiringDocuments = hiringDocuments;
-	}
-
-	public String getDocument() {
-		return document;
-	}
-
-	public void setDocument(String document) {
-		this.document = document;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -83,10 +61,4 @@ public class EmployeeDocumentDTO implements Serializable {
 		return id.equals(other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "EmployeeDocumentDTO [id=" + id + ", hiringDocuments=" + hiringDocuments + ", document=" + document
-				+ "]";
-	}
-	
 }

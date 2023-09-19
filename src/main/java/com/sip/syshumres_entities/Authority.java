@@ -16,6 +16,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 
@@ -27,9 +32,11 @@ import javax.persistence.JoinColumn;
  */
 @Entity
 @Table(name="authorities")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Authority {
-	
-	public Authority() {}
 
 	public Authority(Long id, String description) {
 		this.setId(id);
@@ -80,62 +87,6 @@ public class Authority {
     
     @Column(columnDefinition = "boolean default true")
 	private boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public List<Privilege> getPrivileges() {
-		return privileges;
-	}
-
-	public void setPrivileges(List<Privilege> privileges) {
-		this.privileges = privileges;
-	}
-
-	public List<Module> getModules() {
-		return modules;
-	}
-
-	public void setModules(List<Module> modules) {
-		this.modules = modules;
-	}
-	
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -154,12 +105,6 @@ public class Authority {
 		Authority s = (Authority) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "Authority [id=" + id + ", description=" + description + ", detail=" + detail + ", users=" + users
-				+ ", privileges=" + privileges + ", modules=" + modules + ", enabled=" + enabled + "]";
 	}
 	
 }

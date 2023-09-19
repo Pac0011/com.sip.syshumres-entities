@@ -7,12 +7,21 @@ import java.util.Objects;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase DTO. Forma para Modulos
  * 
  * @author Prong
  * @version 2.0
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ModuleDTO implements Serializable {	
 	/**
 	 * 
@@ -54,90 +63,6 @@ public class ModuleDTO implements Serializable {
 	private List<EntitySelectDTO> authorities;
 	
 	private boolean enabled;
-	
-	public ModuleDTO() {
-		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getUrlMenu() {
-		return urlMenu;
-	}
-
-	public void setUrlMenu(String urlMenu) {
-		this.urlMenu = urlMenu;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	public EntitySelectDTO getFather() {
-		return father;
-	}
-
-	public void setFather(EntitySelectDTO father) {
-		this.father = father;
-	}
-
-	public List<EntitySelectDTO> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<EntitySelectDTO> childs) {
-		this.childs = childs;
-	}
-
-	public List<EntitySelectDTO> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<EntitySelectDTO> authorities) {
-		this.authorities = authorities;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -158,12 +83,6 @@ public class ModuleDTO implements Serializable {
 			return false;
 		ModuleDTO other = (ModuleDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "ModuleDTO [id=" + id + ", description=" + description + ", detail=" + detail + ", url=" + url
-				+ ", enabled=" + enabled + "]";
 	}
 	
 }

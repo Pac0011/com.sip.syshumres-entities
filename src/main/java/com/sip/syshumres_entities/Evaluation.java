@@ -8,6 +8,11 @@ import javax.validation.constraints.Size;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de evaluaciones para prospectos
@@ -17,6 +22,10 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="evaluations")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Evaluation extends BaseEntityCatalog {
 	
 	@Size(
@@ -24,19 +33,6 @@ public class Evaluation extends BaseEntityCatalog {
 		message = "debe tener una longitud máxima de {max} carácteres"
 	)
 	private String name;
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Evaluation" + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

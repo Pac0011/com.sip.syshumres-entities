@@ -11,6 +11,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +27,10 @@ import java.util.Objects;
  */
 @Entity
 @Table(name="privileges")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Privilege {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,30 +43,6 @@ public class Privilege {
     @JsonIgnoreProperties(value = {"privileges", "handler", "hibernateLazyInitializer"})
     @ManyToMany(mappedBy = "privileges")
     private List<Authority> authorities;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authority> authorities) {
-		this.authorities = authorities;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -76,11 +61,6 @@ public class Privilege {
 		Privilege s = (Privilege) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "Privilege [id=" + id + ", name=" + name + "]";
 	}
 	
 }

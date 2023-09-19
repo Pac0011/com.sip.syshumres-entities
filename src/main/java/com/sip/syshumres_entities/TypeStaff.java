@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipos de plantillas para (Servicios, Administrativos Sucursal, Comodines, CubreVacaciones, Especiales)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="types_staff")
+@NoArgsConstructor
+@ToString
 public class TypeStaff extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "TypeStaff" + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

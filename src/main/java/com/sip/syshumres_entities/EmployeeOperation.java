@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,12 +13,21 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /*
  * Informacion operativa del empleado
  */
 @Entity
 @Table(name="employee_operations")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeOperation extends BaseEntityLog {
 	
 	@Id
@@ -30,29 +41,10 @@ public class EmployeeOperation extends BaseEntityLog {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name= "invoiced_resource_type_id")
 	private InvoicedResourceType invoicedResourceType;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Service getService() {
-		return service;
-	}
-
-	public void setService(Service service) {
-		this.service = service;
-	}
-
-	public InvoicedResourceType getInvoicedResourceType() {
-		return invoicedResourceType;
-	}
-
-	public void setInvoicedResourceType(InvoicedResourceType invoicedResourceType) {
-		this.invoicedResourceType = invoicedResourceType;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 	
 	@Override

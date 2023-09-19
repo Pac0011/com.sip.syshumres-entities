@@ -12,10 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -26,10 +36,12 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_general_data")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeGeneralData extends BaseEntityLog {
-	
-	public EmployeeGeneralData() {}
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -115,7 +127,10 @@ public class EmployeeGeneralData extends BaseEntityLog {
 	@JoinColumn(name= "driver_license_validity_id")
 	private DriverLicenseValidity driverLicenseValidity;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name= "driver_license_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date driverLicenseDate;
 	
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
@@ -260,366 +275,6 @@ public class EmployeeGeneralData extends BaseEntityLog {
 	)
 	@Column(name = "born_in")
 	private String bornIn;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getIne() {
-		return ine;
-	}
-
-	public void setIne(String ine) {
-		this.ine = ine;
-	}
-
-	public String getLanguagesSpeak() {
-		return languagesSpeak;
-	}
-
-	public void setLanguagesSpeak(String languagesSpeak) {
-		this.languagesSpeak = languagesSpeak;
-	}
-	
-	public String getSkills() {
-		return skills;
-	}
-
-	public void setSkills(String skills) {
-		this.skills = skills;
-	}
-
-	public Boolean getHaveEconomicDependents() {
-		return haveEconomicDependents;
-	}
-
-	public Boolean getHaveChildren() {
-		return haveChildren;
-	}
-
-	public Boolean getHaveHouse() {
-		return haveHouse;
-	}
-
-	public Boolean getHaveCar() {
-		return haveCar;
-	}
-
-	public Boolean getHaveDebts() {
-		return haveDebts;
-	}
-
-	public Boolean getPayRent() {
-		return payRent;
-	}
-
-	public Boolean isHaveEconomicDependents() {
-		return haveEconomicDependents;
-	}
-
-	public void setHaveEconomicDependents(Boolean haveEconomicDependents) {
-		this.haveEconomicDependents = haveEconomicDependents;
-	}
-
-	public float getMonthlyExpenses() {
-		return monthlyExpenses;
-	}
-
-	public void setMonthlyExpenses(float monthlyExpenses) {
-		this.monthlyExpenses = monthlyExpenses;
-	}
-
-	public int getHowManyChildren() {
-		return howManyChildren;
-	}
-
-	public void setHowManyChildren(int howManyChildren) {
-		this.howManyChildren = howManyChildren;
-	}
-
-	public String getLiveWith() {
-		return liveWith;
-	}
-
-	public void setLiveWith(String liveWith) {
-		this.liveWith = liveWith;
-	}
-
-	public float getAmountDebt() {
-		return amountDebt;
-	}
-
-	public void setAmountDebt(float amountDebt) {
-		this.amountDebt = amountDebt;
-	}
-
-	public float getAmountRent() {
-		return amountRent;
-	}
-
-	public void setAmountRent(float amountRent) {
-		this.amountRent = amountRent;
-	}
-
-	public ExpertType getPreventiveReactiveManagement() {
-		return preventiveReactiveManagement;
-	}
-
-	public void setPreventiveReactiveManagement(ExpertType preventiveReactiveManagement) {
-		this.preventiveReactiveManagement = preventiveReactiveManagement;
-	}
-
-	public DriverLicenseType getDriverLicenseType() {
-		return driverLicenseType;
-	}
-
-	public void setDriverLicenseType(DriverLicenseType driverLicenseType) {
-		this.driverLicenseType = driverLicenseType;
-	}
-
-	public String getMilitaryCertificate() {
-		return militaryCertificate;
-	}
-
-	public void setMilitaryCertificate(String militaryCertificate) {
-		this.militaryCertificate = militaryCertificate;
-	}
-
-	public String getDriverLicenseNumber() {
-		return driverLicenseNumber;
-	}
-
-	public void setDriverLicenseNumber(String driverLicenseNumber) {
-		this.driverLicenseNumber = driverLicenseNumber;
-	}
-
-	public DriverLicenseValidity getDriverLicenseValidity() {
-		return driverLicenseValidity;
-	}
-
-	public void setDriverLicenseValidity(DriverLicenseValidity driverLicenseValidity) {
-		this.driverLicenseValidity = driverLicenseValidity;
-	}
-
-	public Date getDriverLicenseDate() {
-		return driverLicenseDate;
-	}
-
-	public void setDriverLicenseDate(Date driverLicenseDate) {
-		this.driverLicenseDate = driverLicenseDate;
-	}
-
-	public SchoolGrade getSchoolGrade() {
-		return schoolGrade;
-	}
-
-	public void setSchoolGrade(SchoolGrade schoolGrade) {
-		this.schoolGrade = schoolGrade;
-	}
-
-	public SchoolGradeComplete getSchoolGradeComplete() {
-		return schoolGradeComplete;
-	}
-
-	public void setSchoolGradeComplete(SchoolGradeComplete schoolGradeComplete) {
-		this.schoolGradeComplete = schoolGradeComplete;
-	}
-
-	public String getPhoneForMessages() {
-		return phoneForMessages;
-	}
-
-	public void setPhoneForMessages(String phoneForMessages) {
-		this.phoneForMessages = phoneForMessages;
-	}
-
-	public String getParticularReferences1() {
-		return particularReferences1;
-	}
-
-	public void setParticularReferences1(String particularReferences1) {
-		this.particularReferences1 = particularReferences1;
-	}
-
-	public String getParticularReferences2() {
-		return particularReferences2;
-	}
-
-	public void setParticularReferences2(String particularReferences2) {
-		this.particularReferences2 = particularReferences2;
-	}
-
-	public String getParticularReferences3() {
-		return particularReferences3;
-	}
-
-	public void setParticularReferences3(String particularReferences3) {
-		this.particularReferences3 = particularReferences3;
-	}
-
-	public String getPhoneReferences1() {
-		return phoneReferences1;
-	}
-
-	public void setPhoneReferences1(String phoneReferences1) {
-		this.phoneReferences1 = phoneReferences1;
-	}
-
-	public String getRelationshipReferences1() {
-		return relationshipReferences1;
-	}
-
-	public void setRelationshipReferences1(String relationshipReferences1) {
-		this.relationshipReferences1 = relationshipReferences1;
-	}
-
-	public String getPhoneReferences2() {
-		return phoneReferences2;
-	}
-
-	public void setPhoneReferences2(String phoneReferences2) {
-		this.phoneReferences2 = phoneReferences2;
-	}
-
-	public String getRelationshipReferences2() {
-		return relationshipReferences2;
-	}
-
-	public void setRelationshipReferences2(String relationshipReferences2) {
-		this.relationshipReferences2 = relationshipReferences2;
-	}
-
-	public String getPhoneReferences3() {
-		return phoneReferences3;
-	}
-
-	public void setPhoneReferences3(String phoneReferences3) {
-		this.phoneReferences3 = phoneReferences3;
-	}
-
-	public String getRelationshipReferences3() {
-		return relationshipReferences3;
-	}
-
-	public void setRelationshipReferences3(String relationshipReferences3) {
-		this.relationshipReferences3 = relationshipReferences3;
-	}
-
-	public String getParticularReferences() {
-		return particularReferences;
-	}
-
-	public void setParticularReferences(String particularReferences) {
-		this.particularReferences = particularReferences;
-	}
-
-	public String getGeneralReferences() {
-		return generalReferences;
-	}
-
-	public void setGeneralReferences(String generalReferences) {
-		this.generalReferences = generalReferences;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
-	public ExpertType getInductionRecord() {
-		return inductionRecord;
-	}
-
-	public void setInductionRecord(ExpertType inductionRecord) {
-		this.inductionRecord = inductionRecord;
-	}
-
-	public ExpertType getInductionBasicSystems() {
-		return inductionBasicSystems;
-	}
-
-	public void setInductionBasicSystems(ExpertType inductionBasicSystems) {
-		this.inductionBasicSystems = inductionBasicSystems;
-	}
-
-	public ExpertType getBasicSecurity() {
-		return basicSecurity;
-	}
-
-	public void setBasicSecurity(ExpertType basicSecurity) {
-		this.basicSecurity = basicSecurity;
-	}
-
-	public ExpertType getManagementTonfaPr24() {
-		return managementTonfaPr24;
-	}
-
-	public void setManagementTonfaPr24(ExpertType managementTonfaPr24) {
-		this.managementTonfaPr24 = managementTonfaPr24;
-	}
-
-	public String getNationality() {
-		return nationality;
-	}
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
-
-	public String getBornIn() {
-		return bornIn;
-	}
-
-	public void setBornIn(String bornIn) {
-		this.bornIn = bornIn;
-	}
-
-	public Boolean isHaveChildren() {
-		return haveChildren;
-	}
-
-	public void setHaveChildren(Boolean haveChildren) {
-		this.haveChildren = haveChildren;
-	}
-
-	public Boolean isHaveHouse() {
-		return haveHouse;
-	}
-
-	public void setHaveHouse(Boolean haveHouse) {
-		this.haveHouse = haveHouse;
-	}
-
-	public Boolean isHaveCar() {
-		return haveCar;
-	}
-
-	public void setHaveCar(Boolean haveCar) {
-		this.haveCar = haveCar;
-	}
-
-	public Boolean isHaveDebts() {
-		return haveDebts;
-	}
-
-	public void setHaveDebts(Boolean haveDebts) {
-		this.haveDebts = haveDebts;
-	}
-
-	public Boolean isPayRent() {
-		return payRent;
-	}
-
-	public void setPayRent(Boolean payRent) {
-		this.payRent = payRent;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -638,13 +293,6 @@ public class EmployeeGeneralData extends BaseEntityLog {
 		EmployeeGeneralData s = (EmployeeGeneralData) obj;
 		
 		return this.id != null && this.id.equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeGeneralData [id=" + id + ", languagesSpeak=" + languagesSpeak + ", skills=" + skills
-				+ ", militaryCertificate=" + militaryCertificate + ", ine=" + ine + ", haveEconomicDependents="
-				+ haveEconomicDependents + ", monthlyExpenses=" + monthlyExpenses + "]";
 	}
 	
 }

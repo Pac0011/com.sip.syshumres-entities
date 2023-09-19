@@ -19,6 +19,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Catalogo de modulos para agruparlos en los roles
  * 
@@ -27,10 +32,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="modules")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Module {
 	
-	public Module() {}
-
 	public Module(Long id, String description) {
 		this.setId(id);
 		this.setDescription(description);
@@ -81,86 +88,6 @@ public class Module {
 	
 	@Column(columnDefinition = "boolean default true")
 	private boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getUrlMenu() {
-		return urlMenu;
-	}
-
-	public void setUrlMenu(String urlMenu) {
-		this.urlMenu = urlMenu;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	public Module getFather() {
-		return father;
-	}
-
-	public void setFather(Module father) {
-		this.father = father;
-	}
-
-	public List<Module> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<Module> childs) {
-		this.childs = childs;
-	}
-	
-	public List<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authority> authorities) {
-		this.authorities = authorities;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -179,12 +106,6 @@ public class Module {
 		Module s = (Module) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "Module [id=" + id + ", description=" + description + ", detail=" + detail + ", url=" + url
-				+ ", enabled=" + enabled + "]";
 	}
 	
 }

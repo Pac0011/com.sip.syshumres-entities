@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipos de movimientos del IMSS (Alta, Baja, Alta-Baja, Ninguno)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="imss_movement_types")
+@NoArgsConstructor
+@ToString
 public class ImssMovementType extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "ImssMovementType " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

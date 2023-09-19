@@ -12,6 +12,11 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de puestos de empleados
@@ -21,10 +26,12 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_positions")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeePosition extends BaseEntityCatalog {
 	
-	public EmployeePosition() {}
-
 	public EmployeePosition(Long id, String description, boolean enabled) {
 		this.setId(id);
 		this.setDescription(description);
@@ -36,19 +43,6 @@ public class EmployeePosition extends BaseEntityCatalog {
 	@JoinColumn(name="employee_type_id")
 	@NotNull
 	private EmployeeType employeeType;
-	
-	public EmployeeType getEmployeeType() {
-		return employeeType;
-	}
-
-	public void setEmployeeType(EmployeeType employeeType) {
-		this.employeeType = employeeType;
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeePosition " + super.toString() + " [employeeType=" + employeeType + "]";
-	}
 	
 	@Override
 	public int hashCode() {

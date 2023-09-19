@@ -8,6 +8,11 @@ import javax.validation.constraints.Size;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Catalogo de centros de costos para Sucursales y Areas
  * 
@@ -16,23 +21,17 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="cost_centers")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class CostCenter extends BaseEntityCatalog {
-	
-	public CostCenter() {}
-	
+		
 	@Size(
 		max=12,
 		message = "debe tener una longitud máxima de {max} carácteres"
 	)
 	private String code;
-	
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -51,11 +50,6 @@ public class CostCenter extends BaseEntityCatalog {
 		CostCenter s = (CostCenter) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "CostCenter " + super.toString();
 	}
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Clase Entity. Catalogo de estatus de Prospectos(Inicio proceso, En revisión, Rechazado, Contratado)
@@ -16,12 +18,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="prospect_status")
+@NoArgsConstructor
+@ToString
 public class ProspectStatus extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "ProspectStatus" + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

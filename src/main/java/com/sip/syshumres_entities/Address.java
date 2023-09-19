@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +16,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Registro de direcciones ubicacion y fiscal para Empresas y Sucursales
  * 
@@ -22,9 +29,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name="addresses")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Address {
-	
-	public Address() {}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,77 +105,10 @@ public class Address {
 	//Crear las referencias al catalogo de colonias 
 	//@Column(name = "colony_id")
 	//private Long colonyId;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getZip() {
-		return zip;
-	}
-
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-
-	public AddressState getAddressState() {
-		return addressState;
-	}
-
-	public void setAddressState(AddressState addressState) {
-		this.addressState = addressState;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getMunicipality() {
-		return municipality;
-	}
-
-	public void setMunicipality(String municipality) {
-		this.municipality = municipality;
-	}
-
-	public String getColony() {
-		return colony;
-	}
-
-	public void setColony(String colony) {
-		this.colony = colony;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getNumberInterior() {
-		return numberInterior;
-	}
-
-	public void setNumberInterior(String numberInterior) {
-		this.numberInterior = numberInterior;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 	
 	@Override
@@ -182,12 +124,4 @@ public class Address {
 		
 		return this.id != null && this.id.equals(s.getId());
 	}
-
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", zip=" + zip + ", addressState=" + addressState + ", city=" + city + ", municipality="
-				+ municipality + ", colony=" + colony + ", street=" + street + ", number=" + number
-				+ ", numberInterior=" + numberInterior + "]";
-	}
-
 }

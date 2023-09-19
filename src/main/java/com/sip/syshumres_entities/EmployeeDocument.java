@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +16,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Registro de documentos para empleados
@@ -23,9 +30,11 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="employee_documents")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeDocument extends BaseEntityLog {
-	
-	public EmployeeDocument() {}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,36 +57,9 @@ public class EmployeeDocument extends BaseEntityLog {
 	@Column(name = "document")
 	private String document;
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public EmployeeProfile getEmployeeProfile() {
-		return employeeProfile;
-	}
-
-	public void setEmployeeProfile(EmployeeProfile employeeProfile) {
-		this.employeeProfile = employeeProfile;
-	}
-
-	public HiringDocuments getHiringDocuments() {
-		return hiringDocuments;
-	}
-
-	public void setHiringDocuments(HiringDocuments hiringDocuments) {
-		this.hiringDocuments = hiringDocuments;
-	}
-
-	public String getDocument() {
-		return document;
-	}
-
-	public void setDocument(String document) {
-		this.document = document;
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 
 	@Override

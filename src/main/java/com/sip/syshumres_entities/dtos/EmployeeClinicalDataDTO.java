@@ -8,6 +8,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase DTO. Forma para datos clinicos Empleados
@@ -16,15 +21,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeClinicalDataDTO implements Serializable {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 263370448038603330L;
-	
-	public EmployeeClinicalDataDTO() {
-		super();
-	}
 
 	private Long id;
 	
@@ -68,122 +73,6 @@ public class EmployeeClinicalDataDTO implements Serializable {
 	)
 	private String covidCertificate;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public EntitySelectDTO getBloodType() {
-		return bloodType;
-	}
-
-	public void setBloodType(EntitySelectDTO bloodType) {
-		this.bloodType = bloodType;
-	}
-
-	public float getWeight() {
-		return weight;
-	}
-
-	public void setWeight(float weight) {
-		this.weight = weight;
-	}
-
-	public float getHeight() {
-		return height;
-	}
-
-	public void setHeight(float height) {
-		this.height = height;
-	}
-
-	public Boolean isMedicalAssistance() {
-		return medicalAssistance;
-	}
-
-	public void setMedicalAssistance(Boolean medicalAssistance) {
-		this.medicalAssistance = medicalAssistance;
-	}
-
-	public String getPsychometry() {
-		return psychometry;
-	}
-
-	public void setPsychometry(String psychometry) {
-		this.psychometry = psychometry;
-	}
-
-	public Boolean isVaccinated() {
-		return isVaccinated;
-	}
-
-	public void setVaccinated(Boolean isVaccinated) {
-		this.isVaccinated = isVaccinated;
-	}
-
-	public EntitySelectDTO getEmployeeTypeHealth() {
-		return employeeTypeHealth;
-	}
-
-	public void setEmployeeTypeHealth(EntitySelectDTO employeeTypeHealth) {
-		this.employeeTypeHealth = employeeTypeHealth;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
-	public String getDeclaredDiseases() {
-		return declaredDiseases;
-	}
-
-	public void setDeclaredDiseases(String declaredDiseases) {
-		this.declaredDiseases = declaredDiseases;
-	}
-
-	public EntitySelectDTO getVaccineDose() {
-		return vaccineDose;
-	}
-
-	public void setVaccineDose(EntitySelectDTO vaccineDose) {
-		this.vaccineDose = vaccineDose;
-	}
-
-	public EntitySelectDTO getCovidVaccine() {
-		return covidVaccine;
-	}
-
-	public void setCovidVaccine(EntitySelectDTO covidVaccine) {
-		this.covidVaccine = covidVaccine;
-	}
-
-	public Boolean getIsVaccinated() {
-		return isVaccinated;
-	}
-
-	public void setIsVaccinated(Boolean isVaccinated) {
-		this.isVaccinated = isVaccinated;
-	}
-
-	public String getCovidCertificate() {
-		return covidCertificate;
-	}
-
-	public void setCovidCertificate(String covidCertificate) {
-		this.covidCertificate = covidCertificate;
-	}
-
-	public Boolean getMedicalAssistance() {
-		return medicalAssistance;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -203,12 +92,6 @@ public class EmployeeClinicalDataDTO implements Serializable {
 			return false;
 		EmployeeClinicalDataDTO other = (EmployeeClinicalDataDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeClinicalDataDTO [id=" + id + ", weight=" + weight + ", height=" + height + ", psychometry="
-				+ psychometry + ", isVaccinated=" + isVaccinated + ", observations=" + observations + "]";
 	}
 	
 }

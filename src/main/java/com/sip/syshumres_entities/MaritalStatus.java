@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de estatus maritales
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="marital_status")
+@NoArgsConstructor
+@ToString
 public class MaritalStatus extends BaseEntityCatalog {
-
-	@Override
-	public String toString() {
-		return "MaritalStatus " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

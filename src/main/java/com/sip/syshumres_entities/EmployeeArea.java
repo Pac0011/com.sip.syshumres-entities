@@ -15,6 +15,11 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Catalogo de Areas para empleado
  * 
@@ -23,9 +28,11 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_areas")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeArea extends BaseEntityCatalog {
-	
-	public EmployeeArea() {}
 
 	public EmployeeArea(Long id, String description, boolean enabled) {
 		this.setId(id);
@@ -46,30 +53,6 @@ public class EmployeeArea extends BaseEntityCatalog {
 	@JsonIgnoreProperties(value = {"father", "handler", "hibernateLazyInitializer"}, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "father", cascade = CascadeType.ALL)
 	private List<EmployeeArea> childs;
-
-	public CostCenter getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(CostCenter costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public EmployeeArea getFather() {
-		return father;
-	}
-
-	public void setFather(EmployeeArea father) {
-		this.father = father;
-	}
-
-	public List<EmployeeArea> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<EmployeeArea> childs) {
-		this.childs = childs;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -88,11 +71,6 @@ public class EmployeeArea extends BaseEntityCatalog {
 		EmployeeArea s = (EmployeeArea) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeArea " + super.toString();
 	}
 	
 }

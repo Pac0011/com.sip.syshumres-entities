@@ -10,8 +10,16 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -21,6 +29,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ProspectProfileDTO implements Serializable {
 	/**
 	 * 
@@ -78,6 +90,8 @@ public class ProspectProfileDTO implements Serializable {
 	private EntitySelectDTO employeePosition;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateBirth;
 	
 	@Size(
@@ -114,150 +128,6 @@ public class ProspectProfileDTO implements Serializable {
 		message = "Observaciones debe tener una longitud máxima de {max} carácteres"
 	)
 	private String observations;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEcript() {
-		return ecript;
-	}
-
-	public void setEcript(String ecript) {
-		this.ecript = ecript;
-	}
-
-	public String getCurp() {
-		return curp;
-	}
-
-	public void setCurp(String curp) {
-		this.curp = curp;
-	}
-
-	public String getRfc() {
-		return rfc;
-	}
-
-	public void setRfc(String rfc) {
-		this.rfc = rfc;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getLastNameSecond() {
-		return lastNameSecond;
-	}
-
-	public void setLastNameSecond(String lastNameSecond) {
-		this.lastNameSecond = lastNameSecond;
-	}
-
-	public Date getDateBirth() {
-		return dateBirth;
-	}
-
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getCellNumber() {
-		return cellNumber;
-	}
-
-	public void setCellNumber(String cellNumber) {
-		this.cellNumber = cellNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public EntitySelectDTO getEmployeePosition() {
-		return employeePosition;
-	}
-
-	public void setEmployeePosition(EntitySelectDTO employeePosition) {
-		this.employeePosition = employeePosition;
-	}
-
-	public EntitySelectDTO getGender() {
-		return gender;
-	}
-
-	public void setGender(EntitySelectDTO gender) {
-		this.gender = gender;
-	}
-
-	public EntitySelectDTO getProspectStatus() {
-		return prospectStatus;
-	}
-
-	public void setProspectStatus(EntitySelectDTO prospectStatus) {
-		this.prospectStatus = prospectStatus;
-	}
-
-	public EntitySelectDTO getBranchOffice() {
-		return branchOffice;
-	}
-
-	public void setBranchOffice(EntitySelectDTO branchOffice) {
-		this.branchOffice = branchOffice;
-	}
-
-	public String getNationality() {
-		return nationality;
-	}
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -278,14 +148,6 @@ public class ProspectProfileDTO implements Serializable {
 			return false;
 		ProspectProfileDTO other = (ProspectProfileDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "ProspectProfileDTO [id=" + id + ", ecript=" + ecript + ", curp=" + curp + ", rfc=" + rfc
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", lastNameSecond=" + lastNameSecond
-				+ ", fullName=" + fullName + ", employeePosition=" + employeePosition + ", dateBirth=" + dateBirth
-				+ ", phoneNumber=" + phoneNumber + ", cellNumber=" + cellNumber + ", email=" + email + "]";
 	}
 	
 }

@@ -7,6 +7,8 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+
 
 /**
  * Clase Entity. Catalogo de catagorias de documentos para contratación (Proceso de seleccion, Documentos personales, Kit de contratacion)
@@ -16,6 +18,7 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="hiring_documents_type")
+@NoArgsConstructor
 public class HiringDocumentsType extends BaseEntityCatalog {
 	
 	@Override

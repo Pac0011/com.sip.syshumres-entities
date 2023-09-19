@@ -1,9 +1,14 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
+
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Clase Entity. Catalogo de tipos de sangre
@@ -13,11 +18,27 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="blood_type")
+@NoArgsConstructor
+@ToString
 public class BloodType extends BaseEntityCatalog {
 	
 	@Override
-	public String toString() {
-		return "BloodType" + super.toString();
+	public int hashCode() {
+		return Objects.hash(this.getId());
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof BloodType)) {
+			return false;
+		}
+		BloodType s = (BloodType) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
 	}
 
 }

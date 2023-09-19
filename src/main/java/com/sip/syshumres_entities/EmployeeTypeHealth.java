@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipo de salud de empleado (Saludable, recuperado,)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_types_health")
+@NoArgsConstructor
+@ToString
 public class EmployeeTypeHealth extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "EmployeeTypeHealth " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

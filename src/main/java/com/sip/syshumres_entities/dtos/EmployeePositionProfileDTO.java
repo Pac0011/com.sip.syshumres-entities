@@ -6,16 +6,26 @@ import java.util.Objects;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+/**
+ * Clase DTO. Forma para EmployeePositionProfile
+ * 
+ * @author Prong
+ * @version 2.0
+ */
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeePositionProfileDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2247674233450164213L;
-	
-	public EmployeePositionProfileDTO() {
-		super();
-	}
 
 	private Long id;
 	
@@ -34,54 +44,6 @@ public class EmployeePositionProfileDTO implements Serializable {
 	private EntitySelectDTO typeStaff;
 	
 	private boolean enabled;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public boolean isPayroll() {
-		return payroll;
-	}
-
-	public void setPayroll(boolean payroll) {
-		this.payroll = payroll;
-	}
-
-	public boolean isHasStaff() {
-		return hasStaff;
-	}
-
-	public void setHasStaff(boolean hasStaff) {
-		this.hasStaff = hasStaff;
-	}
-
-	public EntitySelectDTO getTypeStaff() {
-		return typeStaff;
-	}
-
-	public void setTypeStaff(EntitySelectDTO typeStaff) {
-		this.typeStaff = typeStaff;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -102,12 +64,6 @@ public class EmployeePositionProfileDTO implements Serializable {
 			return false;
 		EmployeePositionProfileDTO other = (EmployeePositionProfileDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeePositionProfileDTO [id=" + id + ", description=" + description + ", payroll=" + payroll
-				+ ", hasStaff=" + hasStaff + ", typeStaff=" + typeStaff + ", enabled=" + enabled + "]";
 	}
 	
 }

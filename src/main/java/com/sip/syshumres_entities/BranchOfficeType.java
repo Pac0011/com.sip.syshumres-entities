@@ -1,9 +1,14 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
+
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Clase Entity. Catalogo de tipo de Sucursales(SUC, OOP)
@@ -13,13 +18,27 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="branch_offices_types")
+@NoArgsConstructor
+@ToString
 public class BranchOfficeType extends BaseEntityCatalog {
 	
-	public BranchOfficeType() {}
-	
 	@Override
-	public String toString() {
-		return "BranchOfficeType" + super.toString();
+	public int hashCode() {
+		return Objects.hash(this.getId());
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof BranchOfficeType)) {
+			return false;
+		}
+		BranchOfficeType s = (BranchOfficeType) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
 	}
 
 }

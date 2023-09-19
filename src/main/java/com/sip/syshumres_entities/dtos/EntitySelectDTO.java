@@ -3,19 +3,26 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase. DTO comun para select<html>
  * 
  * @author Prong
  * @version 2.0
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EntitySelectDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6713769118290899289L;
-
-	public EntitySelectDTO() {}
 
 	public EntitySelectDTO(Long id, String description) {
 		this.setId(id);
@@ -25,22 +32,6 @@ public class EntitySelectDTO implements Serializable {
 	private Long id;
 	
 	private String description;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -63,9 +54,4 @@ public class EntitySelectDTO implements Serializable {
 		return Objects.equals(description, other.description) && Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "EntitySelectDTO [id=" + id + ", description=" + description + "]";
-	}
-	
 }

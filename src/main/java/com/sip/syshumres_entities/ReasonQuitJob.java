@@ -8,6 +8,11 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogos de motivos de renuncias
@@ -17,6 +22,10 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="reason_quit_job")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ReasonQuitJob extends BaseEntityCatalog {
 	
 	/*
@@ -24,19 +33,6 @@ public class ReasonQuitJob extends BaseEntityCatalog {
 	 */
 	@Column(columnDefinition = "boolean default true")
 	private boolean rehire;
-	
-	public boolean isRehire() {
-		return rehire;
-	}
-
-	public void setRehire(boolean rehire) {
-		this.rehire = rehire;
-	}
-
-	@Override
-	public String toString() {
-		return "ReasonQuitJob " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,12 +11,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /*
  * Numero de elementos por servicio
  */
 @Entity
 @Table(name="service_staff")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ServiceStaff {
 	
 	@Id
@@ -30,37 +41,24 @@ public class ServiceStaff {
 	private InvoicedResourceType invoicedResourceType;
 	
 	private int numberElements;
-
-	public Long getId() {
-		return id;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Service getService() {
-		return service;
-	}
-
-	public void setService(Service service) {
-		this.service = service;
-	}
-
-	public InvoicedResourceType getInvoicedResourceType() {
-		return invoicedResourceType;
-	}
-
-	public void setInvoicedResourceType(InvoicedResourceType invoicedResourceType) {
-		this.invoicedResourceType = invoicedResourceType;
-	}
-
-	public int getNumberElements() {
-		return numberElements;
-	}
-
-	public void setNumberElements(int numberElements) {
-		this.numberElements = numberElements;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof ServiceStaff)) {
+			return false;
+		}
+		ServiceStaff s = (ServiceStaff) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
 	}
 
 }

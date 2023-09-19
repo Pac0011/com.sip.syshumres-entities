@@ -12,6 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Clase. Entity comun para tablas
  * 
@@ -19,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @version 2.0
  */
 @MappedSuperclass
+@Getter
+@Setter
 public class BaseEntityLog {
 	
 	//private long id_user_created;
@@ -27,7 +32,8 @@ public class BaseEntityLog {
 	
 	@JsonIgnore
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
 	
 	@PrePersist
@@ -37,28 +43,13 @@ public class BaseEntityLog {
 	
 	@JsonIgnore
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date updated;
 	
 	@PreUpdate
 	public void preUpdate() {
 		this.updated = new Date();
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public Date getUpdated() {
-		return updated;
-	}
-
-	public void setUpdated(Date updated) {
-		this.updated = updated;
 	}
 
 	@Override

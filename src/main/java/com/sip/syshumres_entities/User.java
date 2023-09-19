@@ -17,6 +17,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 //import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.ManyToMany;
@@ -32,6 +37,10 @@ import javax.persistence.JoinTable;
  */
 @Entity
 @Table(name="users")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class User {
 	
 	@Id
@@ -99,95 +108,7 @@ public class User {
 	public void removeAuthority(Authority authority) {
 		this.authorities.remove(authority);
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public List<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authority> authorities) {
-		this.authorities = authorities;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public boolean isTokenExpired() {
-		return tokenExpired;
-	}
-
-	public void setTokenExpired(boolean tokenExpired) {
-		this.tokenExpired = tokenExpired;
-	}
-
-	public boolean isMultiBranchOffice() {
-		return multiBranchOffice;
-	}
-
-	public void setMultiBranchOffice(boolean multiBranchOffice) {
-		this.multiBranchOffice = multiBranchOffice;
-	}
-
-	public boolean isSeeAllBranchs() {
-		return seeAllBranchs;
-	}
-
-	public void setSeeAllBranchs(boolean seeAllBranchs) {
-		this.seeAllBranchs = seeAllBranchs;
-	}
-
-	public BranchOffice getBranchOffice() {
-		return branchOffice;
-	}
-
-	public void setBranchOffice(BranchOffice branchOffice) {
-		this.branchOffice = branchOffice;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -203,14 +124,6 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", username=" + username + ", email=" + email
-				+ ", password=" + password + ", enabled=" + enabled + ", tokenExpired=" + tokenExpired
-				+ ", multiBranchOffice=" + multiBranchOffice + ", seeAllBranchs=" + seeAllBranchs + ", authorities="
-				+ authorities + ", branchOffice=" + branchOffice + "]";
 	}
 	
 }

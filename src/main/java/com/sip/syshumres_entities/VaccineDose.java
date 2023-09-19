@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de numero de dosis vacunacion
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="vaccine_dose")
+@NoArgsConstructor
+@ToString
 public class VaccineDose extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "VaccineDose " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

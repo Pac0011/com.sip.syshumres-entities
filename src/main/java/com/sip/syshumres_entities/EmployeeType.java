@@ -10,6 +10,11 @@ import javax.validation.constraints.Size;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipo de empleado (Administrativo u Operativo)
@@ -19,6 +24,10 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_types")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeeType extends BaseEntityCatalog {
 	
 	//GU- o AD-
@@ -30,20 +39,7 @@ public class EmployeeType extends BaseEntityCatalog {
 	)
 	@Column(name = "prefix")
 	private String prefix;
-	
-	public String getPrefix() {
-		return prefix;
-	}
 
-	public void setPrefix(String prefix) {
-		this.prefix = prefix;
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeType " + super.toString() + " [prefix=" + prefix + "]";
-	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

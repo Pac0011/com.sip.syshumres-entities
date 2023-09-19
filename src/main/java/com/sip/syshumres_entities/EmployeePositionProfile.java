@@ -12,6 +12,11 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de Perfil de puesto (Comodin, Base, Cubredescansos, especial, etc)
@@ -21,10 +26,12 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_position_profiles")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class EmployeePositionProfile extends BaseEntityCatalog {
-	
-	public EmployeePositionProfile() {}
-	
+		
 	//Si la posicion entra en la nomina o no
 	//@ManyToOne(fetch = FetchType.LAZY)
 	//@JoinColumn(name="employee_position_profile_payroll_id")
@@ -42,35 +49,6 @@ public class EmployeePositionProfile extends BaseEntityCatalog {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name= "types_staff_id")
 	private TypeStaff typeStaff;
-
-	public boolean isPayroll() {
-		return payroll;
-	}
-
-	public void setPayroll(boolean payroll) {
-		this.payroll = payroll;
-	}
-
-	public boolean isHasStaff() {
-		return hasStaff;
-	}
-
-	public void setHasStaff(boolean hasStaff) {
-		this.hasStaff = hasStaff;
-	}
-
-	public TypeStaff getTypeStaff() {
-		return typeStaff;
-	}
-
-	public void setTypeStaff(TypeStaff typeStaff) {
-		this.typeStaff = typeStaff;
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeePositionProfile" + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

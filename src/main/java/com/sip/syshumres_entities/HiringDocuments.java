@@ -12,6 +12,10 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 /**
  * Clase Entity. Catalogo de documentos para contratación (Solicitud de empleo ó C.V., Evaluación psicométrica., Reporte de Antidoping y médico)
@@ -21,6 +25,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="hiring_documents")
+@Getter
+@Setter
+@NoArgsConstructor
 public class HiringDocuments extends BaseEntityCatalog {
 	
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
@@ -28,14 +35,6 @@ public class HiringDocuments extends BaseEntityCatalog {
 	@JoinColumn(name="hiring_documents_type_id")
 	@NotNull
 	private HiringDocumentsType hiringDocumentsType;
-	
-	public HiringDocumentsType getHiringDocumentsType() {
-		return hiringDocumentsType;
-	}
-
-	public void setHiringDocumentsType(HiringDocumentsType hiringDocumentsType) {
-		this.hiringDocumentsType = hiringDocumentsType;
-	}
 
 	@Override
 	public String toString() {

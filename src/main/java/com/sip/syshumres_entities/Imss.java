@@ -11,6 +11,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Registro de movimientos del IMSS para empleados
  * 
@@ -19,6 +24,10 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name="imss")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Imss {
 	
 	@Id
@@ -35,30 +44,6 @@ public class Imss {
 	
 	@Column(columnDefinition = "boolean default true")
 	private Boolean enabled;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -77,11 +62,6 @@ public class Imss {
 		Imss s = (Imss) obj;
 		
 		return this.id != null && this.id.equals(s.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Imss [id=" + id + ", name=" + name + ", enabled=" + enabled + "]";
 	}
 	
 }

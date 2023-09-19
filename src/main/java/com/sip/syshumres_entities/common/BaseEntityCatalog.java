@@ -9,6 +9,9 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Clase. Entity comun para Catalogos
  * 
@@ -16,6 +19,8 @@ import javax.validation.constraints.Size;
  * @version 2.0
  */
 @MappedSuperclass
+@Getter
+@Setter
 public class BaseEntityCatalog extends BaseEntityLog {
 
 	@Id
@@ -30,43 +35,16 @@ public class BaseEntityCatalog extends BaseEntityLog {
 	)
     private String description;
 	
-	@Column(columnDefinition = "boolean default true")
 	//@Column(nullable = true, columnDefinition = "TINYINT(1)")
+	@Column(columnDefinition = "boolean default true")
 	private boolean enabled;
 	
-//	@PrePersist
-//	public void prePersist() {
-//	    if (this.active == null) {
-//	        setActive(true);
-//	    }
-//	}
-	
-	//Orden de los campos
-	//private int ord;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+	/*@PrePersist
+	public void prePersist() {
+	    if (this.active == null) {
+	        setActive(true);
+	    }
+	}*/
 
 	@Override
 	public String toString() {

@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de cursos (Registro de inducción, Basico de seguridad, Manejo de tonfa / PR-24, Manejo preventivo y reactivo)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="employee_special_courses")
+@NoArgsConstructor
+@ToString
 public class EmployeeSpecialCourses extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "EmployeeSpecialCourses " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

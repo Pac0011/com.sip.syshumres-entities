@@ -18,10 +18,19 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityLog;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -32,6 +41,10 @@ import com.sip.syshumres_entities.common.BaseEntityLog;
  */
 @Entity
 @Table(name="prospect_profile")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ProspectProfile extends BaseEntityLog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,6 +109,8 @@ public class ProspectProfile extends BaseEntityLog {
 		
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_birth")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dateBirth;
 	
 	@Size(
@@ -148,142 +163,6 @@ public class ProspectProfile extends BaseEntityLog {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="prospect_status_id")
 	private ProspectStatus prospectStatus;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEcript() {
-		return ecript;
-	}
-
-	public void setEcript(String ecript) {
-		this.ecript = ecript;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getLastNameSecond() {
-		return lastNameSecond;
-	}
-
-	public void setLastNameSecond(String lastNameSecond) {
-		this.lastNameSecond = lastNameSecond;
-	}
-
-	public Date getDateBirth() {
-		return dateBirth;
-	}
-
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getCellNumber() {
-		return cellNumber;
-	}
-
-	public void setCellNumber(String cellNumber) {
-		this.cellNumber = cellNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public ProspectStatus getProspectStatus() {
-		return prospectStatus;
-	}
-
-	public void setProspectStatus(ProspectStatus prospectStatus) {
-		this.prospectStatus = prospectStatus;
-	}
-
-	public String getCurp() {
-		return curp;
-	}
-
-	public void setCurp(String curp) {
-		this.curp = curp;
-	}
-
-	public String getRfc() {
-		return rfc;
-	}
-
-	public void setRfc(String rfc) {
-		this.rfc = rfc;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}	
-
-	public String getNationality() {
-		return nationality;
-	}
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
-
-	public EmployeePosition getEmployeePosition() {
-		return employeePosition;
-	}
-
-	public void setEmployeePosition(EmployeePosition employeePosition) {
-		this.employeePosition = employeePosition;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
-	public BranchOffice getBranchOffice() {
-		return branchOffice;
-	}
-
-	public void setBranchOffice(BranchOffice branchOffice) {
-		this.branchOffice = branchOffice;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -302,13 +181,6 @@ public class ProspectProfile extends BaseEntityLog {
 		ProspectProfile s = (ProspectProfile) obj;
 		
 		return this.getId() != null && this.getId().equals(s.getId());
-	}
-
-	@Override
-	public String toString() {
-		return "ProspectProfile [id=" + id + ", ecript=" + ecript + ", curp=" + curp + ", rfc=" + rfc + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", lastNameSecond=" + lastNameSecond + ", dateBirth="
-				+ dateBirth + ", phoneNumber=" + phoneNumber + "]";
 	}
 	
 }

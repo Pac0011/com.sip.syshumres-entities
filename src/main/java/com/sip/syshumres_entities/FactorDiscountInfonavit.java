@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de factor de descuento Infonavit (Porcentaje, Veces salario mínimo, Cuota fija)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="factors_discount_infonavit")
+@NoArgsConstructor
+@ToString
 public class FactorDiscountInfonavit extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "FactorDiscountInfonavit " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

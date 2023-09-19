@@ -23,6 +23,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * Clase Entity. Catalogo de Sucursales
  * 
@@ -31,9 +36,11 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="branch_offices")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class BranchOffice extends BaseEntityCatalog {
-	
-	public BranchOffice() {}
 
 	public BranchOffice(Long id, String description) {
 		this.setId(id);
@@ -105,102 +112,6 @@ public class BranchOffice extends BaseEntityCatalog {
 	@JsonIgnoreProperties(value = {"branchOffices", "handler", "hibernateLazyInitializer"})
 	@ManyToMany(mappedBy = "branchOffices")
     private List<ManagingCompany> managingCompanies;
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getExtPhoneNumber() {
-		return extPhoneNumber;
-	}
-
-	public void setExtPhoneNumber(String extPhoneNumber) {
-		this.extPhoneNumber = extPhoneNumber;
-	}
-
-	public String getShortPhoneNumber() {
-		return shortPhoneNumber;
-	}
-
-	public void setShortPhoneNumber(String shortPhoneNumber) {
-		this.shortPhoneNumber = shortPhoneNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public BranchOfficeType getBranchOfficeType() {
-		return branchOfficeType;
-	}
-
-	public void setBranchOfficeType(BranchOfficeType branchOfficeType) {
-		this.branchOfficeType = branchOfficeType;
-	}
-
-	public List<ManagingCompany> getManagingCompanies() {
-		return managingCompanies;
-	}
-
-	public void setManagingCompanies(List<ManagingCompany> managingCompanies) {
-		this.managingCompanies = managingCompanies;
-	}
-
-	public CostCenter getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(CostCenter costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public Region getRegion() {
-		return region;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
-	}
-
-	public BranchOffice getFather() {
-		return father;
-	}
-
-	public void setFather(BranchOffice father) {
-		this.father = father;
-	}
-
-	public List<BranchOffice> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<BranchOffice> childs) {
-		this.childs = childs;
-	}
-	
-	@Override
-	public String toString() {
-		return "BranchOffice [phoneNumber=" + phoneNumber + ", extPhoneNumber=" + extPhoneNumber + ", shortPhoneNumber="
-				+ shortPhoneNumber + ", email=" + email + ", address=" + address + ", branchOfficeType="
-				+ branchOfficeType + ", costCenter=" + costCenter + ", region=" + region + ", father=" + father 
-				+ "," +  super.toString() + "]";
-	}
 
 	@Override
 	public int hashCode() {

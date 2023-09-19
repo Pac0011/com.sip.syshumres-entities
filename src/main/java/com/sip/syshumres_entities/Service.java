@@ -1,5 +1,7 @@
 package com.sip.syshumres_entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,12 +14,21 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 
 /*
  * Catalogo de servicios para los clientes
  */
 @Entity
 @Table(name="services")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Service {
 	
 	@Id
@@ -43,38 +54,24 @@ public class Service {
 	
     @Column(columnDefinition = "boolean default true")
 	private boolean enabled;
-
-	public Long getId() {
-		return id;
+    
+    @Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof Service)) {
+			return false;
+		}
+		Service s = (Service) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
 	}
 	
-
 }

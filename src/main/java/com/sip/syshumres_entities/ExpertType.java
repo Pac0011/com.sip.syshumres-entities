@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipo de expertis (Basico, Medio, Avanzado)
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="expert_types")
+@NoArgsConstructor
+@ToString
 public class ExpertType extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "ExpertType " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

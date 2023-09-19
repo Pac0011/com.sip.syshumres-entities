@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de otras razones de renuncia empleados
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="other_reason_quit_job")
+@NoArgsConstructor
+@ToString
 public class OtherReasonQuitJob extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "OtherReasonQuitJob " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

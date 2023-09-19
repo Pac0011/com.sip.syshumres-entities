@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de termino de grados escolares
@@ -16,12 +19,9 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="school_grades_complete")
+@NoArgsConstructor
+@ToString
 public class SchoolGradeComplete extends BaseEntityCatalog {
-	
-	@Override
-	public String toString() {
-		return "SchoolGradeComplete " + super.toString();
-	}
 	
 	@Override
 	public int hashCode() {

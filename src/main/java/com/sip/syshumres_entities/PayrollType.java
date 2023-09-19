@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import com.sip.syshumres_entities.common.BaseEntityCatalog;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 /**
  * Clase Entity. Catalogo de tipo de nominas (Semanal, Quincenal, Especial, etc)
@@ -16,19 +19,14 @@ import com.sip.syshumres_entities.common.BaseEntityCatalog;
  */
 @Entity
 @Table(name="payroll_types")
+@NoArgsConstructor
+@ToString
 public class PayrollType extends BaseEntityCatalog {
-	
-	public PayrollType() {}
-	
+		
 	public PayrollType(Long id, String description, boolean enabled) {
 		this.setId(id);
 		this.setDescription(description);
 		this.setEnabled(enabled);
-	}
-	
-	@Override
-	public String toString() {
-		return "PayrollType " + super.toString();
 	}
 	
 	@Override

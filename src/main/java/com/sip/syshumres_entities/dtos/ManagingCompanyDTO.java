@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -11,7 +12,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.sip.syshumres_entities.Address;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -21,15 +26,15 @@ import com.sip.syshumres_entities.Address;
  * @version 2.0
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class ManagingCompanyDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -393488541872429673L;
-	
-	public ManagingCompanyDTO() {
-		super();
-	}
 
 	private Long id;
 	
@@ -104,139 +109,13 @@ public class ManagingCompanyDTO implements Serializable {
 	
 	private List<EntitySelectDTO> branchOffices;
 	
+	@Valid
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
-	private Address address;
+	private AddressDTO address;
 	
+	@Valid
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
-	private Address addressFiscal;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getExtPhoneNumber() {
-		return extPhoneNumber;
-	}
-
-	public void setExtPhoneNumber(String extPhoneNumber) {
-		this.extPhoneNumber = extPhoneNumber;
-	}
-
-	public String getShortPhoneNumber() {
-		return shortPhoneNumber;
-	}
-
-	public void setShortPhoneNumber(String shortPhoneNumber) {
-		this.shortPhoneNumber = shortPhoneNumber;
-	}
-
-	public String getFullPhoneNumber() {
-		return fullPhoneNumber;
-	}
-
-	public void setFullPhoneNumber(String fullPhoneNumber) {
-		this.fullPhoneNumber = fullPhoneNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getRfc() {
-		return rfc;
-	}
-
-	public void setRfc(String rfc) {
-		this.rfc = rfc;
-	}
-
-	public String getEmployerRegistration() {
-		return employerRegistration;
-	}
-
-	public void setEmployerRegistration(String employerRegistration) {
-		this.employerRegistration = employerRegistration;
-	}
-
-	public String getLegalRepresentative() {
-		return legalRepresentative;
-	}
-
-	public void setLegalRepresentative(String legalRepresentative) {
-		this.legalRepresentative = legalRepresentative;
-	}
-
-	public EntitySelectDTO getTypeHiring() {
-		return typeHiring;
-	}
-
-	public void setTypeHiring(EntitySelectDTO typeHiring) {
-		this.typeHiring = typeHiring;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public List<EntitySelectDTO> getBranchOffices() {
-		return branchOffices;
-	}
-
-	public void setBranchOffices(List<EntitySelectDTO> branchOffices) {
-		this.branchOffices = branchOffices;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public Address getAddressFiscal() {
-		return addressFiscal;
-	}
-
-	public void setAddressFiscal(Address addressFiscal) {
-		this.addressFiscal = addressFiscal;
-	}
+	private AddressDTO addressFiscal;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -257,14 +136,6 @@ public class ManagingCompanyDTO implements Serializable {
 			return false;
 		ManagingCompanyDTO other = (ManagingCompanyDTO) obj;
 		return id.equals(other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "ManagingCompanyDTO [id=" + id + ", description=" + description + ", phoneNumber=" + phoneNumber
-				+ ", extPhoneNumber=" + extPhoneNumber + ", shortPhoneNumber=" + shortPhoneNumber + ", fullPhoneNumber="
-				+ fullPhoneNumber + ", email=" + email + ", companyName=" + companyName + ", rfc=" + rfc
-				+ ", employerRegistration=" + employerRegistration + "]";
 	}
 	
 }
