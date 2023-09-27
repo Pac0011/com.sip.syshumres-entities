@@ -30,21 +30,11 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class ManagingCompanyDTO implements Serializable {
+public class ManagingCompanyDTO extends BaseEntityCatalogDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -393488541872429673L;
-
-	private Long id;
-	
-	@NotEmpty
-	@Size(
-		min=1,
-		max=64,
-		message = "debe tener una longitud entre {min} y {max} caracteres"
-	)
-	private String description;
 	
 	@Size(
 		max=12,
@@ -104,9 +94,7 @@ public class ManagingCompanyDTO implements Serializable {
 	private String legalRepresentative;
 	
 	private EntitySelectDTO typeHiring;
-		
-	private boolean enabled;
-	
+			
 	private List<EntitySelectDTO> branchOffices;
 	
 	@Valid
@@ -123,7 +111,7 @@ public class ManagingCompanyDTO implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(this.getId());
 	}
 
 	@Override
@@ -135,7 +123,7 @@ public class ManagingCompanyDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ManagingCompanyDTO other = (ManagingCompanyDTO) obj;
-		return id.equals(other.id);
+		return this.getId().equals(other.getId());
 	}
 	
 }

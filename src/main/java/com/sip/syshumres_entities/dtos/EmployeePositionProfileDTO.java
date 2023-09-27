@@ -3,9 +3,6 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,21 +18,11 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class EmployeePositionProfileDTO implements Serializable {
+public class EmployeePositionProfileDTO extends BaseEntityCatalogDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2247674233450164213L;
-
-	private Long id;
-	
-	@NotEmpty
-	@Size(
-		min=1,
-		max=64,
-		message = "debe tener una longitud entre {min} y {max} caracteres"
-	)
-	private String description;
 	
 	private boolean payroll;
 	
@@ -43,15 +30,13 @@ public class EmployeePositionProfileDTO implements Serializable {
 	
 	private EntitySelectDTO typeStaff;
 	
-	private boolean enabled;
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(this.getId());
 	}
 
 	@Override
@@ -63,7 +48,7 @@ public class EmployeePositionProfileDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		EmployeePositionProfileDTO other = (EmployeePositionProfileDTO) obj;
-		return id.equals(other.id);
+		return this.getId().equals(other.getId());
 	}
 	
 }

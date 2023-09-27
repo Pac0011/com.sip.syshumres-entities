@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.sip.syshumres_entities.EmployeeAddress;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -66,7 +65,7 @@ public class EmployeePayrollDTO implements Serializable {
 	
 	@Valid
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
-	private EmployeeAddress employeeAddressFiscal;
+	private AddressDTO employeeAddressFiscal;
 
 	private EntitySelectDTO payrollType;
 

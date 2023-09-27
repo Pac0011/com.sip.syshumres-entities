@@ -29,21 +29,11 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class BranchOfficeDTO implements Serializable {
+public class BranchOfficeDTO extends BaseEntityCatalogDTO implements Serializable {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1799527185250030060L;
-	
-	private Long id;
-	
-	@NotEmpty
-	@Size(
-		min=1,
-		max=64,
-		message = "debe tener una longitud entre {min} y {max} caracteres"
-	)
-	private String description;
 	
 	@Size(
 		max=12,
@@ -83,8 +73,6 @@ public class BranchOfficeDTO implements Serializable {
 	@Valid
 	@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"})
 	private AddressDTO address;
-	
-	private boolean enabled;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -92,7 +80,7 @@ public class BranchOfficeDTO implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(this.getId());
 	}
 
 	@Override
@@ -104,7 +92,7 @@ public class BranchOfficeDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		BranchOfficeDTO other = (BranchOfficeDTO) obj;
-		return id.equals(other.id);
+		return this.getId().equals(other.getId());
 	}
 	
 }

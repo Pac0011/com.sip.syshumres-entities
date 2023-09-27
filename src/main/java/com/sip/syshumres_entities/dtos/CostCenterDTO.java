@@ -3,7 +3,6 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -21,29 +20,17 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class CostCenterDTO implements Serializable {
+public class CostCenterDTO extends BaseEntityCatalogDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2801476382058896191L;
-
-	private Long id;
-	
-	@NotEmpty
-	@Size(
-		min=1,
-		max=64,
-		message = "debe tener una longitud entre {min} y {max} caracteres"
-	)
-	private String description;
 	
 	@Size(
 		max=12,
 		message = "debe tener una longitud máxima de {max} carácteres"
 	)
 	private String code;
-	
-	private boolean enabled;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -51,7 +38,7 @@ public class CostCenterDTO implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(this.getId());
 	}
 
 	@Override
@@ -63,7 +50,7 @@ public class CostCenterDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		CostCenterDTO other = (CostCenterDTO) obj;
-		return id.equals(other.id);
+		return this.getId().equals(other.getId());
 	}
 
 }
