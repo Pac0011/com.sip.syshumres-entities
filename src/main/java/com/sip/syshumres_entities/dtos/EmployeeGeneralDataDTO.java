@@ -13,6 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sip.syshumres_entities.dtos.common.EntitySelectDTO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

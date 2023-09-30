@@ -3,7 +3,6 @@ package com.sip.syshumres_entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,14 +14,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sip.syshumres_entities.common.BaseEntityCatalog;
+import com.sip.syshumres_entities.common.BaseContactInfo;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -39,7 +36,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ManagingCompany extends BaseEntityCatalog {
+public class ManagingCompany extends BaseContactInfo {
 
 	public ManagingCompany() {
 		this.branchOffices = new ArrayList<>();
@@ -54,39 +51,6 @@ public class ManagingCompany extends BaseEntityCatalog {
 	)
 	@Column(name = "company_name")
 	private String companyName;
-	
-	@Size(
-		max=12,
-		message = "Número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-	@Column(name = "phone_number")
-	private String phoneNumber;
-	
-	@Size(
-		max=6,
-		message = "Extensión de número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-	@Column(name = "ext_phone_number")
-	private String extPhoneNumber;
-	
-	@Size(
-		max=6,
-		message = "Corto de número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-	@Column(name = "short_phone_number")
-	private String shortPhoneNumber;
-	
-	@Transient
-	public String getFullPhoneNumber() {
-		return new StringBuilder(Optional.ofNullable(this.phoneNumber).orElse(""))
-				.append(" Ext.: ")
-				.append(Optional.ofNullable(this.extPhoneNumber).orElse("")).toString();
-	}
-		
-	@NotEmpty
-	@Email
-	@Size(max=64)
-	private String email;
 	
 	//Rfc de la administradora
 	@NotEmpty

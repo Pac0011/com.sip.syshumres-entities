@@ -3,6 +3,9 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.sip.syshumres_entities.dtos.common.BaseEntityCatalogDTO;
+import com.sip.syshumres_entities.dtos.common.EntitySelectDTO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

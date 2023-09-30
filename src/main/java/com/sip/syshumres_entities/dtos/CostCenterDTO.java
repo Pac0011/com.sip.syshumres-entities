@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.validation.constraints.Size;
 
+import com.sip.syshumres_entities.dtos.common.BaseEntityCatalogDTO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

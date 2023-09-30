@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sip.syshumres_entities.dtos.common.BaseContactInfoDTO;
+import com.sip.syshumres_entities.dtos.common.EntitySelectDTO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,36 +31,11 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class ManagingCompanyDTO extends BaseEntityCatalogDTO implements Serializable {
+public class ManagingCompanyDTO extends BaseContactInfoDTO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -393488541872429673L;
-	
-	@Size(
-		max=12,
-		message = "Número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-    private String phoneNumber;
-    
-	@Size(
-		max=6,
-		message = "Extensión de número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-    private String extPhoneNumber;
-	
-	@Size(
-		max=6,
-		message = "Corto de número teléfono debe tener una longitud máxima de {max} caracteres"
-	)
-	private String shortPhoneNumber;
-	
-	private String fullPhoneNumber;
-	
-	@NotEmpty
-	@Email
-	@Size(max=64)
-	private String email;
 	
 	@NotEmpty
 	@Size(

@@ -3,10 +3,9 @@ package com.sip.syshumres_entities.dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sip.syshumres_entities.dtos.common.BaseAddressDTO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,62 +23,16 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class AddressDTO implements Serializable {
+public class AddressDTO extends BaseAddressDTO implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -463587365831146374L;
 	
-    private Long id;
-	
-	@Size(
-        max=5,
-        message = "Código postal debe tener una longitud máxima de {max} carácteres"
-    )
-	private String zip;
-	
-	private EntitySelectDTO addressState;
-	
-	@Size(
-		max=64,
-		message = "Ciudad debe tener una longitud máxima de {max} carácteres"
-	)
-	private String city;
-	
-	@Size(
-		max=64,
-		message = "Municipio debe tener una longitud máxima de {max} carácteres"
-	)
-	private String municipality;
-	
-	@Size(
-		max=64,
-		message = "Colonia debe tener una longitud máxima de {max} carácteres"
-	)
-	private String colony;
-	
-	@Size(
-		max=64,
-		message = "Calle debe tener una longitud máxima de {max} carácteres"
-	)
-	private String street;
-	
-	@Size(
-		max=12,
-		message = "Número debe tener una longitud máxima de {max} carácteres"
-	)
-	private String number;
-	
-	@Size(
-		max=12,
-		message = "Número debe tener una longitud máxima de {max} carácteres"
-	)
-	private String numberInterior;
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(this.getId());
 	}
 
 	@Override
@@ -91,7 +44,7 @@ public class AddressDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		AddressDTO other = (AddressDTO) obj;
-		return id.equals(other.id);
+		return this.getId().equals(other.getId());
 	}
 
 }

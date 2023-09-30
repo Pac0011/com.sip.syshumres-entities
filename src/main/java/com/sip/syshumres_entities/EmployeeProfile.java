@@ -62,11 +62,6 @@ public class EmployeeProfile extends BaseEntityLog {
 	)
 	private String curp;
 
-    //@Column(name = "file_curp", nullable = true)
-    //@Basic(optional = false, fetch = FetchType.LAZY)
-	//@JsonIgnore
-	//@Lob()
-	//private byte[] fileCurp;
     @Size(
 		max=64,
 		message = "La url de la imagen no debe ser mayor a {max} caracteres"

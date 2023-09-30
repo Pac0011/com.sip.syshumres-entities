@@ -38,7 +38,6 @@ public class HiringDocuments extends BaseEntityCatalog {
 
 	@Override
 	public String toString() {
-		//return "HiringDocuments" + super.toString() + " [hiringDocumentsType=" + hiringDocumentsType + "]";
 		//Se utiliza este para que el model.mapper solo le agregue la description  al DTO
 		return super.getId().toString();
 	}

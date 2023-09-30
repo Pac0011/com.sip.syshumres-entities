@@ -6,6 +6,8 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sip.syshumres_entities.dtos.common.BaseEntityCatalogDTO;
+import com.sip.syshumres_entities.dtos.common.EntitySelectDTO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
