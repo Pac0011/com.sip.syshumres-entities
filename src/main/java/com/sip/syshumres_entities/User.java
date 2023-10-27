@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,8 +42,13 @@ import javax.persistence.JoinTable;
 @Setter
 @NoArgsConstructor
 @ToString
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8225357361686308161L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
