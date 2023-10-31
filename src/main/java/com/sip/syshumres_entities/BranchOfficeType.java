@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -20,8 +21,13 @@ import lombok.ToString;
 @Table(name="branch_offices_types")
 @NoArgsConstructor
 @ToString
-public class BranchOfficeType extends BaseEntityCatalog {
+public class BranchOfficeType extends BaseEntityCatalog implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7826891173154787865L;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

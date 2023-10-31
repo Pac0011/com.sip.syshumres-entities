@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities.dtos.common;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.validation.constraints.Email;
@@ -41,5 +42,24 @@ public class BaseContactInfoDTO extends BaseEntityCatalogDTO {
 	@Email
 	@Size(max=64)
 	private String email;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId());
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof BaseContactInfoDTO)) {
+			return false;
+		}
+		BaseContactInfoDTO s = (BaseContactInfoDTO) obj;
+		
+		return this.getId() != null && this.getId().equals(s.getId());
+	}
 
 }

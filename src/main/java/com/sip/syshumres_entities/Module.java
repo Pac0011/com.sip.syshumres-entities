@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,8 +37,13 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Module {
+public class Module implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7904429211274335584L;
+
 	public Module(Long id, String description) {
 		this.setId(id);
 		this.setDescription(description);

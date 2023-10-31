@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-//import javax.persistence.PrePersist;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -38,13 +37,6 @@ public class BaseEntityCatalog extends BaseEntityLog {
 	//@Column(nullable = true, columnDefinition = "TINYINT(1)")
 	@Column(columnDefinition = "boolean default true")
 	private boolean enabled;
-	
-	/*@PrePersist
-	public void prePersist() {
-	    if (this.active == null) {
-	        setActive(true);
-	    }
-	}*/
 
 	@Override
 	public String toString() {

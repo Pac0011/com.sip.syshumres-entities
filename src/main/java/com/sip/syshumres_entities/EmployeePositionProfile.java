@@ -35,7 +35,7 @@ public class EmployeePositionProfile extends BaseEntityCatalog {
 	//Si la posicion entra en la nomina o no
 	//@ManyToOne(fetch = FetchType.LAZY)
 	//@JoinColumn(name="employee_position_profile_payroll_id")
-	//private EmployeePositionProfilePayroll employeePositionProfilePayroll;
+	//private EmployeePositionProfilePayroll employeePositionProfilePayroll
 	
 	@Column(columnDefinition = "boolean default false")
 	private boolean payroll;

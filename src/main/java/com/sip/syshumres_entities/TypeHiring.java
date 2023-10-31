@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -20,8 +21,13 @@ import lombok.ToString;
 @Table(name="type_hiring")
 @NoArgsConstructor
 @ToString
-public class TypeHiring extends BaseEntityCatalog {
+public class TypeHiring extends BaseEntityCatalog implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5355669525389206376L;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

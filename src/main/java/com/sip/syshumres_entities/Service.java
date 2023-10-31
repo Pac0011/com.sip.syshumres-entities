@@ -41,12 +41,6 @@ public class Service {
 	@NotEmpty
 	@Size(min=4, max=64)
     private String code;
-	
-	//Este se definio en el DTO
-	//@Transient
-	//public String getServiceNumber() {
-	//	return "SRV" + this.id;
-    //}
     
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="client_id")

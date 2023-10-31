@@ -84,18 +84,18 @@ public class BaseAddress {
 	@Column(name = "number_interior")
 	private String numberInterior;
 	
-	//private boolean sepomex;
+	//private boolean sepomex
 	
 	//Crear las referencias al catalogo de ciudades 
 	//@Column(name = "city_id")
-	//private Long cityId;
+	//private Long cityId
 	
 	//Crear las referencias al catalogo de municipios
 	//@Column(name = "municipality_id")
-	//private Long municipalityId;
+	//private Long municipalityId
 	
 	//Crear las referencias al catalogo de colonias 
 	//@Column(name = "colony_id")
-	//private Long colonyId;
+	//private Long colonyId
 
 }

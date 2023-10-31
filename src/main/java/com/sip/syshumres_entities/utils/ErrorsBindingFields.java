@@ -15,12 +15,15 @@ import com.sip.syshumres_entities.dtos.ResponseDTO;
  */
 public class ErrorsBindingFields {
 	
+	private ErrorsBindingFields() {// Noncompliant - method is empty
+	}
+	
 	public static  ResponseDTO getErrors(BindingResult result) {
 		ResponseDTO errors = new ResponseDTO();
 		result.getFieldErrors().forEach(err -> {
 			String field = err.getField();
 			//Se coloca \\. para que no lo interprete como un regrex
-			//field = field.replaceAll("\\.","_");
+			//field = field.replaceAll("\\.","_")
 			//Valid number the class inner
 			//Recorta el objeto hasta 1 nivel y replaza . por _
 			if (field.chars().filter(ch -> ch == '.').count() > 0) {
@@ -35,7 +38,7 @@ public class ErrorsBindingFields {
 	public static  ResponseDTO getErrors(Map<String, String> result) {
 		ResponseDTO errors = new ResponseDTO();
 		result.forEach((key, value) -> {
-		    System.out.println("Clave: " + key + ", Valor: " + value);
+		    //System.out.println("Clave: " + key + ", Valor: " + value)
 		    if (key.chars().filter(ch -> ch == '.').count() > 0) {
 		    	key = splitString(key);
 			}

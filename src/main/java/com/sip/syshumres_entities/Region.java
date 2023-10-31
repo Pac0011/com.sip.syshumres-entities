@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -20,8 +21,13 @@ import lombok.ToString;
 @Table(name="regions")
 @NoArgsConstructor
 @ToString
-public class Region extends BaseEntityCatalog {
+public class Region extends BaseEntityCatalog implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6660600268094676176L;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

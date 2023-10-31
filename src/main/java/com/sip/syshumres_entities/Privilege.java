@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,7 +32,12 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Privilege {
+public class Privilege implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5606807800315233199L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

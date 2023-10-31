@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -25,8 +26,12 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class CostCenter extends BaseEntityCatalog {
+public class CostCenter extends BaseEntityCatalog implements Serializable {
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8274908864049760118L;
 	@Size(
 		max=12,
 		message = "debe tener una longitud máxima de {max} carácteres"

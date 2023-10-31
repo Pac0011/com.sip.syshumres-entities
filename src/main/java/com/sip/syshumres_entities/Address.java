@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -24,8 +25,13 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Address extends BaseAddress {
+public class Address extends BaseAddress implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7262355217188332420L;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getId());

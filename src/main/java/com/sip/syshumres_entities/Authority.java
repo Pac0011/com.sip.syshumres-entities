@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,7 +37,12 @@ import javax.persistence.JoinColumn;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Authority {
+public class Authority implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7971804573234890078L;
 
 	public Authority(Long id, String description) {
 		this.setId(id);

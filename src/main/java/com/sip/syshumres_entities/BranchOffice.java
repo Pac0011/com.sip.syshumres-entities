@@ -1,5 +1,6 @@
 package com.sip.syshumres_entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +35,12 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class BranchOffice extends BaseContactInfo {
+public class BranchOffice extends BaseContactInfo implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -452803381435909250L;
 
 	public BranchOffice(Long id, String description) {
 		this.setId(id);

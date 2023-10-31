@@ -26,9 +26,9 @@ import lombok.Setter;
 @Setter
 public class BaseEntityLog {
 	
-	//private long id_user_created;
+	//private long id_user_created
 	
-	//private long id_user_updated;
+	//private long id_user_updated
 	
 	@JsonIgnore
 	@Temporal(TemporalType.TIMESTAMP)
